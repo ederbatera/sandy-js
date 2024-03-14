@@ -1,0 +1,198 @@
+	.user-select-none {
+		user-select: none;
+	}
+
+	#formFuncionario-img-change
+	{
+		display: none;
+		position: absolute; 
+		left: -99999rem;
+	}
+
+	.font-size-12 
+	{
+		font-size: 12px !important;
+	}
+
+	.font-size-12 td
+	{
+		border-top: 1px solid coral;
+	}
+
+	input, textarea {
+		text-transform: uppercase;
+	}
+
+	.hover-black:hover
+	{
+		color: black;
+		cursor: alias;
+	}
+
+	.btn:focus, a:focus
+	{
+		box-shadow: 0 0 0 0 !important;
+		outline: 0 !important;
+	}
+
+	/* TOOLTIP PERSONALIZADO*/
+
+
+.tooltip-main {
+	position: relative;
+	display: inline-block;
+	/* border-bottom: 1px dotted black; */
+  }
+
+.tooltip-main .tooltiptext-black {
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	padding: 5px 0;
+	border-radius: 6px;
+	position: absolute;
+	z-index: 1;
+	top: -5px;
+	right: 105%;
+	font-size: 12px;
+  }
+
+.tooltip-main .tooltiptext-primary {
+	visibility: hidden;
+	width: 120px;
+	background-color: blueviolet;
+	color: #fff;
+	text-align: center;
+	padding: 5px 0;
+	border-radius: 6px;
+	position: absolute;
+	z-index: 1;
+	top: -5px;
+	right: 105%;
+	font-size: 12px;
+  }
+
+.tooltip-main .tooltiptext-danger {
+	visibility: hidden;
+	width: 120px;
+	background-color: red;
+	color: #fff;
+	text-align: center;
+	padding: 5px 0;
+	border-radius: 6px;
+	position: absolute;
+	z-index: 1;
+	top: -5px;
+	right: 105%;
+	font-size: 12px;
+  }
+
+.tooltip-main:hover .tooltiptext-black{
+	visibility: visible;
+  }
+.tooltip-main:hover .tooltiptext-primary{
+	visibility: visible;
+  }
+.tooltip-main:hover .tooltiptext-danger{
+	visibility: visible;
+  }
+
+.tooltip-main .tooltiptext::after {
+	content: " ";
+	position: absolute;
+	top: 50%;
+	left: 100%; /* To the right of the tooltip */
+	margin-top: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent transparent transparent black;
+  }
+
+  /* TOOLTIP PERSONALIZADO*/
+
+[data-tooltip] {
+  position: relative;
+  font-weight: bold;
+}
+
+[data-tooltip]:after {
+  /* display: none;
+  position: absolute;
+  top: -5px;
+  padding: 5px;
+  border-radius: 3px;
+  left: calc(100% + 2px);
+  content: attr(data-tooltip);
+  white-space: nowrap;
+  background-color: #0095ff;
+  color: White; */
+  	display: none;
+	width: 120px;
+	background-color: #17b79c;
+	color: black;
+	text-align: center;
+	padding: 5px 0;
+	border-radius: 6px;
+	position: absolute;
+	z-index: 1;
+	top: -5px;
+	right: 105%;
+	font-size: 12px;
+	content: attr(data-tooltip);
+	font-family: sans-serif;
+}
+
+[data-tooltip]:hover:after {
+  display: block;
+}
+
+.hidden {
+	display: none;
+  }
+
+/* BOTÕES PERSONALIZADOS */
+.custom-btn {
+	font-size: small;
+	width: 80px;
+	height: 30px;
+	color: #fff;
+	border-radius: 5px;
+	padding: 5px 5px;
+	font-family: 'Lato', sans-serif;
+	font-weight: 500;
+	background: transparent;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	position: relative;
+	display: inline-block;
+	box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+	 7px 7px 20px 0px rgba(0,0,0,.1),
+	 4px 4px 5px 0px rgba(0,0,0,.1);
+	outline: none;
+  }
+
+.btn-2 {
+	background: rgb(96,9,240);
+	background: linear-gradient(0deg, rgba(96,9,240,1) 0%, rgba(129,5,240,1) 100%);
+	border: none;
+	
+  }
+  .btn-2:before {
+	height: 0%;
+	width: 2px;
+  }
+  .btn-2:hover {
+	box-shadow:  4px 4px 6px 0 rgba(255,255,255,.5),
+				-4px -4px 6px 0 rgba(116, 125, 136, .5), 
+	  inset -4px -4px 6px 0 rgba(255,255,255,.2),
+	  inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+  }
+
+	.height-150 {
+		min-height: 200px;
+		border-top: 1px solid coral;
+
+	}
+
