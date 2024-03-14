@@ -2,7 +2,7 @@ const url = '../../assets/_get_funcionarios.php'; // Substitua 'URL_DA_API' pela
 const tableBody = document.getElementById('tbody-list-funcionarios');
 const searchInput = document.getElementById('search-input-funcionarios');
 const pagination = document.getElementById('pagination-table-funcionarios');
-const itemsPerPage = 25;
+const itemsPerPage = 20;
 let currentPage = 1;
 var __FUNCIONARIOS = [];
 
@@ -522,7 +522,7 @@ const openModalViewFuncionario = (funcionario)=>{
               '<div class="row mb-3">'+
               '<div class="col-3">'+
                 '<label for="email" class="form-label">E-mail</label>'+
-                '<input type="email" class="form-control form-control-sm" name="email" value="'+funcionario.email+'" readonly="readonly">'+
+                '<input type="email" class="form-control form-control-sm" name="email" value="'+funcionario.email+'" readonly="readonly" style="text-transform: lowercase;">'+
               '</div>'+
               '<div class="col-3">'+
                 '<label for="celular" class="form-label">Celular</label>'+
@@ -533,7 +533,7 @@ const openModalViewFuncionario = (funcionario)=>{
                 '<input type="password" class="form-control form-control-sm" name="cartao" data-mask="0000000" value="'+funcionario.cartao+'" readonly="readonly">'+
               '</div>'+
               '<div class="col-2">'+
-                '<label for="saldo" class="form-label">Crédito|Cesta</label>'+
+                '<label for="saldo" class="form-label">Saldo do cartão</label>'+
                 '<span class="badge bg-'+saldoColor+' fw-bold fs-6 p-2 position-relative">'+saldoText+button+'</span>'+
 
               '</div>'+
