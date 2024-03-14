@@ -77,8 +77,8 @@ const openModalViewFuncionario = (id)=>{
 
                 '<div class="row mb-3">'+
                 '<div class="col-3">'+
-                  '<label for="email" class="form-label">E-mail</label>'+
-                  '<input type="email" class="form-control form-control-sm" name="email" value="'+funcionario.email+'" readonly="readonly">'+
+                  '<label for="email" class="form-label">E-mail 2</label>'+
+                  '<input type="email" class="form-control form-control-sm" name="email" value="'+funcionario.email.toLowerCase()+'" readonly="readonly">'+
                 '</div>'+
                 '<div class="col-3">'+
                   '<label for="celular" class="form-label">Celular</label>'+

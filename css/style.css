@@ -50,12 +50,12 @@
 	background-color: black;
 	color: #fff;
 	text-align: center;
-	padding: 5px 0;
+	padding: 1px 0;
 	border-radius: 6px;
 	position: absolute;
 	z-index: 1;
 	top: -5px;
-	right: 105%;
+	right: 50%;
 	font-size: 12px;
   }
 
@@ -65,7 +65,7 @@
 	background-color: blueviolet;
 	color: #fff;
 	text-align: center;
-	padding: 5px 0;
+	padding: 1px 0;
 	border-radius: 6px;
 	position: absolute;
 	z-index: 1;
@@ -137,8 +137,8 @@
 	border-radius: 6px;
 	position: absolute;
 	z-index: 1;
-	top: -5px;
-	right: 105%;
+	top: 0;
+	right: 70%;
 	font-size: 12px;
 	content: attr(data-tooltip);
 	font-family: sans-serif;

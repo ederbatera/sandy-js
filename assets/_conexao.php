@@ -7,7 +7,7 @@
  date_default_timezone_set('America/Sao_Paulo');
    
     define('HOST', '10.0.0.7');  
-    define('DBNAME', 'sandy');  
+    define('DBNAME', 'sandy_dev');  
     define('CHARSET', 'utf8');  
     define('USER', 'ederbatera');  
     define('PASSWORD', 'Mion@03122022');

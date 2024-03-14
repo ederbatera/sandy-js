@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         //     exit;
         // }
 
-        $dsn = 'mysql:host=10.0.0.7;dbname=sandy';
+        $dsn = 'mysql:host=10.0.0.7;dbname=sandy_dev';
         $username = 'ederbatera';
         $password = 'Mion@03122022';
         

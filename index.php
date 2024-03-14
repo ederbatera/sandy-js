@@ -19,7 +19,7 @@
 
     <div class="container-fluid">
         <div class="row justify-content-between align-items-center">
-            <div class="col-auto align-self-start border border-2  rounded ">
+            <div class="col-auto align-self-start">
                 <img src="../img/logo/logo.png" class="rounded" alt="..." style="width: 40px; height: 40px">
                 <span class="fs-4">Gerenciamento de Cestas Básicas </span>
             </div>

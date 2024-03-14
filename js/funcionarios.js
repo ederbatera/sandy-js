@@ -1,4 +1,4 @@
-const url = 'https://sandy.agudos.digital/assets/_get_funcionarios.php'; // Substitua 'URL_DA_API' pela URL da sua API
+const url = '../../assets/_get_funcionarios.php'; // Substitua 'URL_DA_API' pela URL da sua API
 const tableBody = document.getElementById('tbody-list-funcionarios');
 const searchInput = document.getElementById('search-input-funcionarios');
 const pagination = document.getElementById('pagination-table-funcionarios');

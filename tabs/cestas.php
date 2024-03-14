@@ -10,7 +10,7 @@
           <th>Lotação</th>
           <th>Local</th>
           <th>Cargo</th>
-					<th>Enviar Saldo <input class="form-check-input" id="checkBoxSaldoAll" type="checkbox"></th>
+					<th>Saldo <input class="form-check-input" id="checkBoxSaldoAll" type="checkbox"></th>
 					</tr>
 				</thead>
 				<tbody class="height-150 font-size-12">
@@ -23,9 +23,9 @@
       <!-- <div class="col"><button class="btn btn-danger" onclick="setSaldoAll()"> Carregar </button></div> -->
       <div class="col-auto">Total: <span class="badge bg-success fw-bold fs-6" id="usersAll">...</span></div>
       <div class="col-auto"> Com direito: <span class="badge bg-success fw-bold fs-6" id="usersWithRights">...</span></div>
-      <div class="col-auto"> Optante: <span class="badge bg-success fw-bold fs-6" id="usersWithOption">...</span></div>
+      <div class="col-auto"> Optantes: <span class="badge bg-success fw-bold fs-6" id="usersWithOption">...</span></div>
       <div class="col-auto me-auto"> Selecionados: <span class="badge bg-success fw-bold fs-6" id="selectedUserCount">...</span></div>
-      <div class="col-auto align-self-end"><input class="btn btn-sm btn-primary" type="submit" value="Enviar saldo"></div>
+      <div class="col-auto align-self-end"><input class="btn btn-sm btn-primary" type="submit" value="SALVAR"></div>
     </div>
 
 	</form>
@@ -44,7 +44,7 @@
 
 	async function setSaldoAll (){
 
-    // const usersWithRights = __FUNCIONARIOS.filter(user => user.opcao_cesta === 1 && user.direito_cesta === 1 );
+    const usersWithRightsAndOptions = __FUNCIONARIOS.filter(user => user.opcao_cesta === 1 && user.direito_cesta === 1 && user.ativo === 1 );
     const usersWithRights = __FUNCIONARIOS.filter(user => user.direito_cesta === 1 );
     const usersWithOption = __FUNCIONARIOS.filter(user => user.direito_cesta === 1 && user.opcao_cesta === 1 );
 		userTable.textContent = '';
@@ -166,7 +166,12 @@
     });
     
     
-		usersWithRights.forEach(user => {
+		// usersWithRights.forEach(user => {
+    //   		const row = createRow(user);
+    //   		userTable.appendChild(row);
+    // 	});
+
+      usersWithRightsAndOptions.forEach(user => {
       		const row = createRow(user);
       		userTable.appendChild(row);
     	});
