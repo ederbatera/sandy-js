@@ -105,7 +105,7 @@ if (isset($_POST['operacao']) && is_numeric($_POST['userid']))
 else
     {
         $response['error']      = true;
-        $response['message']    = 'Invalid operacao';
+        $response['message']    = 'Operação inválida';
         header('Content-Type: application/json');
         echo json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
     }

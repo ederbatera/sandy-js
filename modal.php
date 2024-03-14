@@ -141,10 +141,10 @@
             </div>
           </div>
           
-          <div class="row justify-content-start">
+          <div class="row justify-content-end">
             <div class="col-auto">
               <!-- <a id="btn-addFuncionario" class="btn btn-success btn-sm" onclick="addFuncionario()">Salvar</a> -->
-              <button type="submit" class="btn btn-success btn-sm">Salvar</button>
+              <button type="submit" class="btn btn-success">Salvar</button>
             </div>
           </div>
         
