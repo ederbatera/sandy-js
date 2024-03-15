@@ -2,6 +2,7 @@
 
 include_once "../configs/load_env.php";
 $token = $_ENV['WEBSOCKET_TOKEN'];
+$db = $_ENV['DB_NAME'];
 function sendWebSocket($array, $token) {
 
     $countedValues = array_count_values($array);
@@ -63,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }, $sanitizedUserSaldos);
 
 
-        $dsn = 'mysql:host=10.0.0.7;dbname=sandy_dev';
+        $dsn = 'mysql:host=10.0.0.7;dbname='.$db;
         $username = 'ederbatera';
         $password = 'Mion@03122022';
         

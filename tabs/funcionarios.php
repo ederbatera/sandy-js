@@ -35,9 +35,9 @@
 						<th scope="col">Secretaria</th>
 						<th scope="col">Direito</th>
 						<th scope="col">Opção</th>
-						<th scope="col">Ativo</th>
+						<!-- <th scope="col">Ativo</th> -->
 						<th scope="col">Saldo</th>
-						<th scope="col">Ver|Editar</th>
+						<th scope="col">Editar</th>
 					</tr>
 				</thead>
 				<tbody class="font-size-12" id="tbody-list-funcionarios">

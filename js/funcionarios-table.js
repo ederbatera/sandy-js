@@ -27,7 +27,7 @@ function getFuncionarios(search){
 													'<td>'+funcionarios[i].secretaria+'</td>'+
 													'<td class="text-center fs-5">'+direitoCesta+'</td>'+
 													'<td class="text-center fs-5">'+opcaoCesta+'</td>'+
-													'<td class="text-center fs-5">'+ativo+'</td>'+
+													//'<td class="text-center fs-5">'+ativo+'</td>'+
                                                     '<td class="text-center fs-5">'+saldo+'</td>'+
 													'<td class="text-center fs-5">'+
 														'<a class="text-decoration-none hover-black" onclick="openModalViewFuncionario('+funcionarios[i].id+')"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>'+

@@ -44,5 +44,5 @@ $pdo = Conexao::getInstance();
 
 
     header('Content-Type: application/json');
-    echo json_encode($funcionario, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+    echo json_encode($funcionario, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE); 
 ?>

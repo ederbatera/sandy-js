@@ -1,29 +1,4 @@
 
-$(() => {
-  // $("li").on("click", event => {
-    $('a[data-bs-toggle="tab"]').on('show.bs.tab', function (event) {
-    setTimeout(() => {
-      const el = event.target || event.srcElement;
-      const id = el.id;
-      const target = el.getAttribute("aria-controls");
-      
-      if(target !== null){
-        localStorage.setItem("sandy_table_active",target)
-
-        if(target == "tab-cestas"){
-          setSaldoAll()
-        }
-      //   else if(target == "cameras-kv-1"){
-      //     carregarCameras()
-      //   }
-      //   else if(target == "telefones-kv-1"){
-      //     carregarTelefones()
-      //   }
-       }
-    }, 300);
-  });
-  });
-
 /* Máscaras ER */
 
 const handlePhone = (event) => {

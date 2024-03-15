@@ -133,12 +133,12 @@
               </div>
             </div>
             
-            <div class="col-auto">
+            <!-- <div class="col-auto">
               <div class="form-check form-switch">
                 <input class="form-check-input" type="checkbox" name="ativo" checked>
                 <label class="form-check-label" for="formFuncionario-ativo">Ativo</label>
               </div>
-            </div>
+            </div> -->
           </div>
           
           <div class="row justify-content-end">

@@ -1,4 +1,6 @@
 <?php
+include_once "../configs/load_env.php";
+$db = $_ENV['DB_NAME'];
 
  /*  
   * Constantes de parâmetros para configuração da conexão  
@@ -7,7 +9,7 @@
  date_default_timezone_set('America/Sao_Paulo');
    
     define('HOST', '10.0.0.7');  
-    define('DBNAME', 'sandy_dev');  
+    define('DBNAME', $db);  
     define('CHARSET', 'utf8');  
     define('USER', 'ederbatera');  
     define('PASSWORD', 'Mion@03122022');

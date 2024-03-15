@@ -1,10 +1,32 @@
 $(document).ready(function () {
  
-$(() => {
-  $("#btn-funcionarios").on("click", event => {
-    $("#rfidCardInput").focus();
-  });
-});
+
+	 /* PEGA O EVENTO DE ABERTURA DE TAB */
+	 $(() => {
+			$('a[data-bs-toggle="tab"]').on('show.bs.tab', function (event) {
+			setTimeout(() => {
+				const el = event.target || event.srcElement;
+				//const id = el.id;
+				const target = el.getAttribute("aria-controls");
+				
+				if(target !== null){
+					localStorage.setItem("@Sandy:table_active",target)
+					
+					switch (target) {
+						case "tab-funcionarios":
+							$("#rfidCardInput").val("").focus()
+							break;
+						case "tab-cestas":
+							setSaldoAll()
+							break;	
+						default:
+							break;
+					}
+				}
+			}, 300);
+		});
+	  });
+
 
 // VERIFICA SE A TECLA ENTER FOI ACIONADA NO INPUT RFID
 $('#rfidCardInput').keypress(function(e) {
@@ -21,15 +43,15 @@ $('#input-find-funcionarios').keypress(function(e) {
 });
 
 
-$('#rfidCardInput').mask('0000000', {
-	'translation': {
-	//	S: {pattern: /[A-Za-z]/},
-		0: {pattern: /[0-9]/}
-	}
-	,onKeyPress: function (value, event) {
-		event.currentTarget.value = value.toUpperCase();
-	}
-});
+// $('#rfidCardInput').mask('0000000', {
+// 	'translation': {
+// 	//	S: {pattern: /[A-Za-z]/},
+// 		0: {pattern: /[0-9]/}
+// 	}
+// 	,onKeyPress: function (value, event) {
+// 		event.currentTarget.value = value.toUpperCase();
+// 	}
+// });
 
 /*
 $(document).on("click","#formFuncionario-celular", function(){
@@ -83,6 +105,7 @@ function getRFID(receveRFID = false){
 		var rfidCard = $( "#rfidCardInput" ).val();
 		}
 		
+		rfidCard = parseInt(rfidCard)
 	if(rfidCard == ""){
 		Swal.fire({
 			icon: 'error',
@@ -92,16 +115,15 @@ function getRFID(receveRFID = false){
 
 		$( "#rfidCardInput" ).val("");
 		$.post( "../assets/_get_rfidcard.php", {"rfidcard" : rfidCard}).done(function( data ) {
-			var retorno = data;
-		
-			if(retorno.localizado == 1){
-				openModalViewFuncionario(retorno.id);					
+	
+			if(data.localizado == 1){
+				openModalViewFuncionario(data);					
 
 			}else{
 				Swal.fire({
 					icon: 'error',
 					title: 'Ops!',
-					html: retorno.error,
+					html: data.error,
 					showConfirmButton:true,
 					showCancelButton: false,
 					confirmButtonText: 'Fechar',
@@ -114,6 +136,7 @@ function getRFID(receveRFID = false){
 			}
 
 		});
-	}  
+	} 
+
 	
 }
