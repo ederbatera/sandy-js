@@ -1,14 +1,14 @@
 <?php  
   
 
-    if (isset($_POST['formFuncionario-img-id']) && is_numeric($_POST['formFuncionario-img-id']))
+    if (isset($_POST['formFuncionario-img-matricula']) && is_numeric($_POST['formFuncionario-img-matricula']))
     {
-        $id = intval($_POST['formFuncionario-img-id']);
+        $matricula = intval($_POST['formFuncionario-img-matricula']);
 
         try 
         {
             
-            if (!array_map('unlink', glob("../img/perfil/".$id.".*")))
+            if (!array_map('unlink', glob("../img/perfil/".$matricula.".*")))
             {
                 throw new Exception(':( Não foi possível deletar');
             }
@@ -16,7 +16,7 @@
 
             include_once '_conexao.php';
             $pdo = Conexao::getInstance();
-            $query = $pdo->prepare("UPDATE funcionarios SET img = NULL WHERE id = '{$id}'");        
+            $query = $pdo->prepare("UPDATE funcionarios SET img = NULL WHERE matricula = '{$matricula}'");        
             $query->execute();
 
             $response['status'] = true;

@@ -25,7 +25,7 @@
                           <div class="col-auto">
                             <label for="formFuncionario-img-change" class="btn btn-sm btn-primary m-1"><i class="fa-solid fa-upload"></i></label>
                             <input type="file" class="form-control" id="formFuncionario-img-change" name="formFuncionario-img-change" onchange="sendImgPerfil()">                      
-                            <input type="hidden" id="formFuncionario-img-id" name="formFuncionario-img-id" value="">
+                            <input type="hidden" id="formFuncionario-img-matricula" name="formFuncionario-img-matricula" value="">
                             <button type="button" class="btn btn-sm btn-danger m-1" onclick="deleteImgPerfil()"><i class="fa fa-trash-alt"></i></button>                        
                           </div>
                       </div>

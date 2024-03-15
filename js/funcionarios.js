@@ -152,7 +152,12 @@ function populateTable(__FUNCIONARIOS) {
 function filterData() {
   const searchTerm = searchInput.value.toLowerCase();
   const filteredData = __FUNCIONARIOS.filter(item => {
-    return Object.values(item).some(value => {
+    //return Object.values(item).some(value => {
+    return Object.entries(item).some(([key, value]) => {
+      // Verifica se a chave é "cartao" ou "celular" e a ignora
+      if (key === 'cartao' || key === 'celular') {
+        return false;
+      }
       if (typeof value === 'string') {
         return value.toLowerCase().includes(searchTerm);
       } else if (typeof value === 'number') {
@@ -491,7 +496,7 @@ const openModalViewFuncionario = (funcionario) => {
   })
 
   $('#formFuncionario-imgPerfil').html('<img src="../img/perfil/' + img + '" class="img-thumbnail rounded float-end mb-1" alt="...">');
-  $('#formFuncionario-img-id').val(funcionario.id);
+  $('#formFuncionario-img-matricula').val(funcionario.matricula);
 
   $('#modalViewFuncionarioLabel').html(funcionario.matricula + ' ' + funcionario.nome)
   $('#modalBodyViewFuncionario').html(

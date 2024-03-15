@@ -97,7 +97,7 @@ const deleteImgPerfil = () => {
               $("#res-post-img").html('');
             }, 3000);
             $("#formFuncionario-img-change").val('');
-            $('#formFuncionario-imgPerfil').html('<img src="../img/perfil/null.jpg" class="img-thumbnail rounded float-end mb-1" alt="...">');
+            $('#formFuncionario-imgPerfil').html('<img src="../img/perfil/null.jpg" class="img-thumbnail rounded float-end mb-1" alt="...">'); 
           }else{
             $("#formFuncionario-img-change").val('');
             $("#res-post-img").html(msgError(res.error));
