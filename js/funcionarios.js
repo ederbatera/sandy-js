@@ -155,7 +155,7 @@ function filterData() {
     //return Object.values(item).some(value => {
     return Object.entries(item).some(([key, value]) => {
       // Verifica se a chave é "cartao" ou "celular" e a ignora
-      if (key === 'cartao' || key === 'celular') {
+      if (key === 'cartao' || key === 'celular' || key === 'id' || key === 'email') {
         return false;
       }
       if (typeof value === 'string') {

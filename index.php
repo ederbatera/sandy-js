@@ -70,7 +70,7 @@
                 <ul class="navbar-nav nav nav-tab nav-pills" id="kv-1" role="tablist">
 
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link px-3" style="cursor:pointer;" data-bs-target="#tab-dashboard" role="tab"
+                        <a class="nav-link px-3 active" style="cursor:pointer;" data-bs-target="#tab-dashboard" role="tab"
                             data-bs-toggle="tab" aria-controls="tab-dashboard" aria-selected="true">
                             <i class="fa-solid fa-chart-line fa-xl"></i>
                             <span class="">Dashboard</span>
@@ -78,7 +78,7 @@
                     </li>
 
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link px-3 active" style="cursor:pointer;" data-bs-target="#tab-funcionarios"
+                        <a class="nav-link px-3" style="cursor:pointer;" data-bs-target="#tab-funcionarios"
                             role="tab" data-bs-toggle="tab" aria-controls="tab-funcionarios" aria-selected="true">
                             <i class="fa-solid fa-user-tag fa-xl"></i>
                             <span class="">Funcionários</span>

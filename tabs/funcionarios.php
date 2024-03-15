@@ -1,4 +1,4 @@
-<div class="tab-pane fade active show" id="tab-funcionarios" role="tabpanel" aria-labelledby="tab-funcionarios-tab">
+<div class="tab-pane fade active" id="tab-funcionarios" role="tabpanel" aria-labelledby="tab-funcionarios-tab">
 	 <div class="row justify-content-between">
 	 	<div class="col-2">
 		 	<div class="input-group input-group-sm">
