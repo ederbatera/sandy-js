@@ -69,7 +69,7 @@ function populateTable(__FUNCIONARIOS) {
     row.appendChild(lotacaoCell);
 
     const localCell = document.createElement('td');
-    localCell.textContent = item.local;
+    localCell.textContent = item.local_trabalho;
     row.appendChild(localCell);
 
     const cargoCell = document.createElement('td');
@@ -532,7 +532,7 @@ const openModalViewFuncionario = (funcionario) => {
     '</select>' +
     '</div>' +
     '<div class="col">' +
-    '<label for="local" class="form-label">Local</label>' +
+    '<label for="local" class="form-label">Local de Trabalho</label>' +
     '<input type="text" class="form-control form-control-sm" name="local" value="' + funcionario.local_trabalho + '" readonly="readonly">' +
     '</div>' +
     '<div class="col">' +
