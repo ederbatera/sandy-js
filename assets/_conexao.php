@@ -1,6 +1,8 @@
 <?php
 include_once "../configs/load_env.php";
-$db = $_ENV['DB_NAME'];
+$db_user = $_ENV['DB_USER'];
+$db_pass = $_ENV['DB_PASS'];
+$db_name = $_ENV['DB_NAME'];
 $db_host = $_ENV['DB_HOST'];
 
  /*  
@@ -10,10 +12,10 @@ $db_host = $_ENV['DB_HOST'];
  date_default_timezone_set('America/Sao_Paulo');
    
     define('HOST', $db_host);  
-    define('DBNAME', $db);  
+    define('DBNAME', $db_name);  
     define('CHARSET', 'utf8');  
-    define('USER', 'ederbatera');  
-    define('PASSWORD', 'Mion@03122022');
+    define('USER', $db_user);  
+    define('PASSWORD', $db_pass);
 
  class Conexao {  
 
