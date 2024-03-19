@@ -8,7 +8,7 @@ $pdo = Conexao::getInstance();
 
     if($limit):
         
-        $query = $pdo->prepare("SELECT A.id AS id, B.razao AS fornecedor, A.data_att AS data_att, A.data_cadastro AS data_cadastro, A.quantidade AS quantidade
+        $query = $pdo->prepare("SELECT A.id AS id, B.razao AS fornecedor, A.data_atualizacao AS data_atualizacao, A.data_cadastro AS data_cadastro, A.quantidade AS quantidade
                                 from estoque A  
                                 INNER JOIN fornecedores B
                                 ON A.codigo_fornecedor = B.id
@@ -25,7 +25,7 @@ $pdo = Conexao::getInstance();
         endif;
         
     else:    
-        $query = $pdo->prepare("SELECT A.id AS id, B.razao AS fornecedor, A.data_att AS data_att, A.data_cadastro AS data_cadastro, A.quantidade AS quantidade
+        $query = $pdo->prepare("SELECT A.id AS id, B.razao AS fornecedor, A.data_atualizacao AS data_atualizacao, A.data_cadastro AS data_cadastro, A.quantidade AS quantidade
                                 from estoque A  
                                 INNER JOIN fornecedores B
                                 ON A.codigo_fornecedor = B.id

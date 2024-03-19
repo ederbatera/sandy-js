@@ -41,10 +41,12 @@ function populateTable(__FUNCIONARIOS) {
     const row = document.createElement('tr');
 
     const nomeCell = document.createElement('td');
-    //nomeCell.textContent = item.nome;
     const nomeFa = document.createElement('i');
-    nomeFa.classList.add('text-primary', 'me-1', 'fa-regular', 'fa-id-card', 'fa-xl');
-    item.cartao ? nomeCell.append(nomeFa, " ", item.nome) : nomeCell.append(item.nome)
+    // nomeFa.classList.add('text-primary', 'me-1', 'fa-regular', 'fa-id-card', 'fa-xl');
+    // item.cartao ? nomeCell.append(nomeFa, " ", item.nome) : nomeCell.append(item.nome)
+    item.cartao ? nomeFa.classList.add('text-success', 'me-1', 'fa-regular', 'fa-id-card', 'fa-xl') : nomeFa.classList.add('text-dark', 'me-1', 'fa-regular', 'fa-id-card', 'fa-xl')
+    nomeCell.append(nomeFa, " ", item.nome)
+
     //nomeCell.appendChild(' '+item.nome);
     row.appendChild(nomeCell);
 
@@ -138,9 +140,6 @@ function populateTable(__FUNCIONARIOS) {
 }
 
 
-
-
-
 function filterData() {
   const searchTerm = searchInput.value.toLowerCase();
   const filteredData = __FUNCIONARIOS.filter(item => {
@@ -162,24 +161,22 @@ function filterData() {
 
   if (filteredData.length > 0) {
 
-  // Atualiza a paginação considerando os dados filtrados
-  renderPagination(filteredData.length);
+    populateTable(getCurrentPageData(filteredData));
+    // Atualiza a paginação considerando os dados filtrados
+    renderPagination(filteredData.length);
 
-  // Mantém a página atual se estiver dentro dos limites
-  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
-  if (currentPage > totalPages) {
-    currentPage = totalPages;
-  }
-
-  populateTable(getCurrentPageData(filteredData));
+    // Mantém a página atual se estiver dentro dos limites
+    const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+    if (currentPage > totalPages) {
+      currentPage = totalPages;
+    }
 
   }
   else {
     tableBody.innerHTML = '';
-    //return false
-  }
+    renderPagination(0);
 
- 
+  }
 
 }
 
@@ -192,17 +189,11 @@ function getCurrentPageData(filteredData) {
 }
 
 
-
-
 function renderPagination(totalItems) {
   const totalPages = Math.ceil((totalItems || __FUNCIONARIOS.length) / itemsPerPage);
   pagination.innerHTML = '';
   // const collun = document.createElement('div');
   // collun.classList.add('col-1');
-
-
-
-
 
   const firstCol = document.createElement('div');
   firstCol.classList.add('col-auto');
@@ -216,10 +207,6 @@ function renderPagination(totalItems) {
   first.classList.add('custom-btn', 'btn-2')
   firstCol.appendChild(first);
   pagination.appendChild(firstCol);
-
-
-
-
 
   const previousCol = document.createElement('div');
   previousCol.classList.add('col-auto');
@@ -236,24 +223,6 @@ function renderPagination(totalItems) {
   previousCol.appendChild(previous);
   pagination.appendChild(previousCol);
 
-
-
-
-
-  // for (let i = 1; i <= totalPages; i++) {
-  //   const li = document.createElement('div');
-  //   li.textContent = i;
-  //   li.addEventListener('click', () => {
-  //     currentPage = i;
-  //     filterData();
-  //   });
-  //   li.classList.add('col-1', 'btn', 'btn-sm', 'btn-primary');
-  //   pagination.appendChild(li);
-  // }
-
-
-
-
   const nextCol = document.createElement('div');
   nextCol.classList.add('col-auto');
   const next = document.createElement('button');
@@ -269,10 +238,6 @@ function renderPagination(totalItems) {
   nextCol.appendChild(next)
   pagination.appendChild(nextCol);
 
-
-
-
-
   const lastCol = document.createElement('div');
   lastCol.classList.add('col-auto');
   const last = document.createElement('button');
@@ -286,21 +251,10 @@ function renderPagination(totalItems) {
   lastCol.appendChild(last)
   pagination.appendChild(lastCol);
 
-
-
-
-
-
-  // const infoCol = document.createElement('div');
-  // infoCol.classList.add('col-auto');
-  // const info = document.createElement('span');
-  // info.textContent = `Listando ${itemsPerPage * (currentPage - 1) + 1} à ${Math.min(itemsPerPage * currentPage, totalItems || __FUNCIONARIOS.length)} de ${totalItems || __FUNCIONARIOS.length} resultados`;
-  const info = `Listando ${itemsPerPage * (currentPage - 1) + 1} à ${Math.min(itemsPerPage * currentPage, totalItems || __FUNCIONARIOS.length)} de ${totalItems || __FUNCIONARIOS.length} resultados`;
+  const info =
+    totalItems == 0 ? `Sem dados para o filtro!` :
+      `Listando ${itemsPerPage * (currentPage - 1) + 1} à ${Math.min(itemsPerPage * currentPage, totalItems || __FUNCIONARIOS.length)} de ${totalItems || __FUNCIONARIOS.length} resultados`;
   $('#paginationInfo').html(info)
-  // info.classList.add('text-white', 'fw-bold', 'fs-6', 'font-monospace');
-  // infoCol.appendChild(info)
-  // pagination.appendChild(infoCol);
-
 
 }
 
@@ -497,7 +451,7 @@ const openModalViewFuncionario = (funcionario) => {
 
   $('#modalViewFuncionarioLabel').html(funcionario.matricula + ' ' + funcionario.nome)
   $('#modalBodyViewFuncionario').html(
-    '<form class="form form-sm row g-3" id="form-edit-funcionario">' +
+    '<form class="form form-sm row g-3" id="form-edit-funcionario" autocomplete="off">' +
     '<div class="row mb-3">' +
     '<div class="col-2">' +
     '<label for="matricula" class="form-label">Matrícula</label>' +

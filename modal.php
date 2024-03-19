@@ -16,7 +16,7 @@
                 </div>
                 <div class="col-3">
                   <div class="border border-primary p-1 rounded">
-                      <form id="form-change-img" enctype="multipart/form-data" method="post" action="">
+                      <form id="form-change-img" enctype="multipart/form-data" autocomplete="off" method="post" action="">
                       <span id="formFuncionario-imgPerfil"><img src="../img/perfil/null.jpg" class="img-thumbnail rounded float-end mb-1" alt="..."></span>
                       <div class="row justify-content-between align-items-center">
                           <div class="col-auto">
@@ -48,7 +48,7 @@
       </div>
       <div class="modal-body">
         <!-- Form -->
-        <form class="form form-sm row g-3" id="formAddFuncionario" action="/"> 
+        <form class="form form-sm row g-3" id="formAddFuncionario" autocomplete="off" action="/"> 
           
           <div class="row mb-3">
               <div class="col-2">
