@@ -1,6 +1,7 @@
 <?php
 include_once "../configs/load_env.php";
 $db = $_ENV['DB_NAME'];
+$db_host = $_ENV['DB_HOST'];
 
  /*  
   * Constantes de parâmetros para configuração da conexão  
@@ -8,7 +9,7 @@ $db = $_ENV['DB_NAME'];
  //header('Content-Type: text/html; charset=utf-8');
  date_default_timezone_set('America/Sao_Paulo');
    
-    define('HOST', '10.0.0.7');  
+    define('HOST', $db_host);  
     define('DBNAME', $db);  
     define('CHARSET', 'utf8');  
     define('USER', 'ederbatera');  
