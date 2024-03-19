@@ -1,4 +1,4 @@
-<div class="tab-pane fade active" id="tab-funcionarios" role="tabpanel" aria-labelledby="tab-funcionarios-tab">
+<div class="tab-pane fade" id="tab-funcionarios" role="tabpanel" aria-labelledby="tab-funcionarios-tab">
 	 <div class="row justify-content-between">
 	 	<div class="col-2">
 		 	<div class="input-group input-group-sm">
@@ -19,11 +19,10 @@
 	 	</div>
 	 </div>
 	<div class="row mt-4 text-center justify-content-center">
-		<div class="col-12 overflow-auto" style="height: 70vh">
+		<div class="col-12 overflow-auto" style="height: 68vh">
 			<table class="table table-success table-sm table-borderless table-responsive table-hover text-start" id="table-funcionarios">
 			<!-- <table id="table-funcionarios"> -->
 				<thead class="table-primary sticky-top" style="background-color: #41605890; z-index: 10;">
-				<!-- <thead style="background-color: #41605890; z-index: 10;"> -->
 					<tr>
 						<th scope="col">Nome</th>
 						<th scope="col">Matricula</th>
@@ -45,8 +44,8 @@
 				</tbody>
 			</table>
 		</div>
-		<div class="row justify-content-md-center mt-1" id="pagination-table-funcionarios"></div>
-		<div class="row justify-content-md-center mt-1" id="paginationInfo"></div>
+		<div class="row justify-content-md-center mt-2" id="pagination-table-funcionarios"></div>
+		<div class="row justify-content-md-center fs-bold mt-1" id="paginationInfo"></div>
 	</div>
 		
 </div>

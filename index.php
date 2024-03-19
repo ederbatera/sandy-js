@@ -23,9 +23,6 @@
                 <img src="../img/logo/logo.png" class="rounded" alt="..." style="width: 40px; height: 40px">
                 <span class="fs-4">Gerenciamento de Cestas Básicas </span>
             </div>
-            <!-- <div class="col-auto align-self-start">
-                <span class="fs-4">Gerenciamento de Cestas Básicas </span>
-            </div> -->
             <div class="col-auto border rounded text-start">
                 <span class="text-muted pl-2">Servidor: </span>
                 <span id="server-status"></span>
@@ -50,8 +47,8 @@
                 </span>
             </div>
             <div class="col-1 text-end px-1 text-primary">
-                <button class="btn btn-sm btn-outline-primary" type="button">
-                    <i class="fa-regular fa-user fa-xl p-3"></i>
+                <button class="btn btn-sm btn-secondary" type="button">
+                    <i class="fa-regular fa-user fa-xl p-1"></i>
                 </button>
             </div>
         </div>

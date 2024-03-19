@@ -8,10 +8,11 @@ $pdo = Conexao::getInstance();
 
     if($limit):
         
-        $query = $pdo->prepare("SELECT * from estoque A 
+        $query = $pdo->prepare("SELECT A.id AS id, B.razao AS fornecedor, A.data_att AS data_att, A.data_cadastro AS data_cadastro, A.quantidade AS quantidade
+                                from estoque A  
                                 INNER JOIN fornecedores B
                                 ON A.codigo_fornecedor = B.id
-                                ORDER BY A.data_atualizacao DESC LIMIT {$limit}");        
+                                ORDER BY A.data_cadastro DESC LIMIT {$limit}");        
         //$query->bindParam(1, $limit);
         $query->execute();
         $number_of_rows = $query->rowCount();
@@ -24,10 +25,11 @@ $pdo = Conexao::getInstance();
         endif;
         
     else:    
-        $query = $pdo->prepare("SELECT * from estoque A 
+        $query = $pdo->prepare("SELECT A.id AS id, B.razao AS fornecedor, A.data_att AS data_att, A.data_cadastro AS data_cadastro, A.quantidade AS quantidade
+                                from estoque A  
                                 INNER JOIN fornecedores B
                                 ON A.codigo_fornecedor = B.id
-                                ORDER BY A.data_atualizacao DESC");
+                                ORDER BY A.data_cadastro DESC");
         $query->execute();
         while($funcionario = $query->fetch(PDO::FETCH_ASSOC)){
                 //$estoque[$funcionario["id"]] = $funcionario;

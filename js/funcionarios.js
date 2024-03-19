@@ -17,14 +17,6 @@ var __FUNCIONARIOS = [];
 // populateTable(getCurrentPageData());
 
 
-
-
-
-//document.addEventListener("DOMContentLoaded", async function() {
-// (async ()=>{
-// async function intiFuncionarios() {
-
-
 async function fetchData() {
   try {
     const response = await fetch(url);
@@ -152,7 +144,6 @@ function populateTable(__FUNCIONARIOS) {
 function filterData() {
   const searchTerm = searchInput.value.toLowerCase();
   const filteredData = __FUNCIONARIOS.filter(item => {
-    //return Object.values(item).some(value => {
     return Object.entries(item).some(([key, value]) => {
       // Verifica se a chave é "cartao" ou "celular" e a ignora
       if (key === 'cartao' || key === 'celular' || key === 'id' || key === 'email') {
@@ -169,7 +160,7 @@ function filterData() {
 
 
 
-
+  if (filteredData.length > 0) {
 
   // Atualiza a paginação considerando os dados filtrados
   renderPagination(filteredData.length);
@@ -181,10 +172,16 @@ function filterData() {
   }
 
   populateTable(getCurrentPageData(filteredData));
+
+  }
+  else {
+    tableBody.innerHTML = '';
+    //return false
+  }
+
+ 
+
 }
-
-
-
 
 
 function getCurrentPageData(filteredData) {
@@ -556,7 +553,7 @@ const openModalViewFuncionario = (funcionario) => {
     '</div>' +
     '<div class="col-2">' +
     '<label for="cartão" class="form-label">Cartão</label>' +
-    '<input type="password" class="form-control form-control-sm" name="cartao" data-mask="0000000" value="' + funcionario.cartao + '" readonly="readonly">' +
+    '<input type="password" class="form-control form-control-sm" name="cartao" data-mask="000000000000000" value="' + funcionario.cartao + '" readonly="readonly">' +
     '</div>' +
     '<div class="col-2">' +
     '<label for="saldo" class="form-label">Saldo do cartão</label>' +
