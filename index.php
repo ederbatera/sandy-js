@@ -178,6 +178,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/gets.js"></script>
     <script src="js/funcionarios.js"></script>
+    <script src="js/cestas.js"></script>
     <script src="js/js.js"></script>
     <script src="js/main.js"></script>
     <script src="js/ws.js"></script>
