@@ -16,7 +16,6 @@ include_once "../configs/load_env.php";
         );
 
         $postUrl = 'https://socket.agudos.digital/update';
-        //$postUrl = 'https://mqtt.agudos.net/teste';
 
         $ch = curl_init($postUrl);
 

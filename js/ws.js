@@ -1,4 +1,4 @@
-  var socket = io('https://socket.agudos.digital', {transports: ['polling']});
+  var socket = io('https://ws.agudos.digital', {transports: ['polling']});
 
   socket.on('timestamp', function(payload){
       let dt = moment.tz(payload, "America/Sao_Paulo")
