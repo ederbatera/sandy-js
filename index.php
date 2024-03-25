@@ -16,6 +16,10 @@ if (isset ($_SESSION['key']) && $_SESSION['key'] == 'KLnNolTydrt56787897hggfs6tk
 $user_nome = isset ($_SESSION['nome']) ? $_SESSION['nome'] : 'UNKNOW';
 $user_id = $_SESSION['id'];
 $permissao = $_SESSION['permissao'];
+
+setcookie('user_name_sandy', $user_nome);
+setcookie('user_id_sandy',$user_id);
+
 include_once 'configs/load_env.php';
 ?>
 
@@ -34,6 +38,7 @@ include_once 'configs/load_env.php';
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link href="css/tabs.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
+    <?php echo '<script type="text/javascript"> var username="'.$user_nome.'"; var userid="'.$user_id.'"; </script>'; ?>
 </head>
 
 <body class="fs-6">
@@ -68,9 +73,24 @@ include_once 'configs/load_env.php';
                 </span>
             </div>
             <div class="col-1 text-end px-1 text-primary">
-                <button class="btn btn-sm btn-secondary" type="button">
+                <!-- <button class="btn btn-sm btn-secondary" type="button">
                     <i class="fa-regular fa-user fa-xl p-1"></i>
-                </button>
+                </button> -->
+                <div class="dropdown">
+                    <button class="btn btn-link dropdown-toggle text-danger pr-2 text-decoration-none" id="menuUser"
+                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <strong>
+                            <?php echo $user_nome; ?>
+                        </strong>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-dark dropdown-menu-right" aria-labelledby="menuUser">
+                        <a class="dropdown-item" type="button" id="btnEditPerfil" data-bs-toggle="modal"
+                            data-bs-target="#modalChangePerfil" onclick="getUsuario(userid)"
+                            style="cursor:pointer;">Perfil</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" onclick="window.location.href='assets/_logout.php'">Sair</a>
+                    </div>
+                </div>
             </div>
         </div>
         <hr>
@@ -183,6 +203,8 @@ include_once 'configs/load_env.php';
 
     <?php
     include_once "modal.php";
+    include_once "modal_altera_senha.php";
+    include_once "modal_change_perfil.php";
     ?>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

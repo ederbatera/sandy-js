@@ -29,7 +29,7 @@ $(document).ready(function () {
 							console.log("fornecedores")
 							break;
 						case "tab-usuarios":
-							console.log("usuarios")
+							getUsuarios()
 							break;
 						case "tab-registros":
 							console.log("registros")
