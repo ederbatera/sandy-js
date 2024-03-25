@@ -7,16 +7,16 @@ if (!isset ($_SESSION['key']) or $_SESSION['key'] != 'KLnNolTydrt56787897hggfs6t
     die();
 endif;
 
-    if ($_SESSION['permissao'] == 1) {
-        header("Location: /delivery");
-    }
+if ($_SESSION['permissao'] == 1) {
+    header("Location: /delivery");
+}
 
 $user_nome = isset ($_SESSION['nome']) ? $_SESSION['nome'] : 'UNKNOW';
 $user_id = $_SESSION['id'];
 $permissao = $_SESSION['permissao'];
 
 setcookie('user_name_sandy', $user_nome);
-setcookie('user_id_sandy',$user_id);
+setcookie('user_id_sandy', $user_id);
 
 include_once 'configs/load_env.php';
 ?>
@@ -36,7 +36,7 @@ include_once 'configs/load_env.php';
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link href="css/tabs.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
-    <?php echo '<script type="text/javascript"> var username="'.$user_nome.'"; var userid="'.$user_id.'"; </script>'; ?>
+    <?php echo '<script type="text/javascript"> var username="' . $user_nome . '"; var userid="' . $user_id . '"; </script>'; ?>
 </head>
 
 <body class="fs-6">
@@ -47,47 +47,43 @@ include_once 'configs/load_env.php';
                 <img src="../img/logo/logo.png" class="rounded" alt="..." style="width: 40px; height: 40px">
                 <span class="fs-4">Gerenciamento de Cestas Básicas </span>
             </div>
-            <div class="col-auto border rounded text-start">
+            <div class="col-auto text-start">
                 <span class="text-muted pl-2">Servidor: </span>
                 <span id="server-status"></span>
                 <span id="timestamp"><span>
             </div>
-            <div class="col-auto border rounded">
+            <div class="col-auto">
                 <span class="text-muted pl-2">Usuários Online: </span>
                 <span class="badge bg-warning fw-bold fs-6 ml-3">
                     <span id="usersWS"> ? </span>
                 </span>
             </div>
-            <div class="col-auto border rounded">
+            <div class="col-auto">
                 <span class="text-muted pl-2">Estoque: </span>
                 <span class="badge bg-warning fw-bold fs-6 ml-3">
                     <span id="estoqueAll"> ? </span>
                 </span>
             </div>
-            <div class="col-4 border rounded">
+            <div class="col-3">
                 <span class="text-muted pl-2">Último evento: </span>
                 <span class="badge bg-light text-primary fs-6 ml-3">
                     <span id="eventWS">Aguardando...</span>
                 </span>
             </div>
-            <div class="col-1 text-end px-1 text-primary">
-                <!-- <button class="btn btn-sm btn-secondary" type="button">
-                    <i class="fa-regular fa-user fa-xl p-1"></i>
-                </button> -->
+            <div class="col-auto text-end px-1">
                 <div class="dropdown">
-                    <button class="btn btn-link dropdown-toggle text-danger pr-2 text-decoration-none" id="menuUser"
-                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <strong>
+                    <button class="btn btn-link dropdown-toggle text-primary pr-2 text-decoration-none"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-regular fa-user fa-xl p-1"></i> <strong>
                             <?php echo $user_nome; ?>
                         </strong>
                     </button>
-                    <div class="dropdown-menu dropdown-menu-dark dropdown-menu-right" aria-labelledby="menuUser">
-                        <a class="dropdown-item" type="button" id="btnEditPerfil" data-bs-toggle="modal"
-                            data-bs-target="#modalChangePerfil" onclick="getUsuario(userid)"
-                            style="cursor:pointer;">Perfil</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" onclick="window.location.href='logout.php'" style="cursor:pointer;">Sair</a>
-                    </div>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-right">
+                        <li><a class="dropdown-item" type="button" data-bs-toggle="modal" onclick="getUsuario(userid)" data-bs-target="#modalChangePerfil">Perfil</a></li>                        
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">-</a></li>
+                        <li><a class="dropdown-item" href="logout.php">Sair</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
