@@ -49,12 +49,11 @@ include_once '_conexao.php';
                 $response['error']      = true;
                 $response['message']    = 'Tipo de log inválido';
                 die(json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));  
-                break;
         }
 
         try {
             $pdo->beginTransaction();           
-            if(!$pdo->exec($query){
+            if(!$pdo->exec($query)){
                 $pdo->rollback();
                 throw new Exception();
             }
@@ -77,7 +76,3 @@ include_once '_conexao.php';
         }
 
     }
-
-
-
-?>
