@@ -36,6 +36,7 @@ include_once '../configs/load_env.php';
 
     <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999">
         <div class="toast-container" id="liveAlertPlaceholder"></div>
+        <!-- <div class="alert alert-success" style="width: 20rem;">Teste de mensagem!</div> -->
     </div>
 
     <div class="container-fluid mt-1">
@@ -62,86 +63,54 @@ include_once '../configs/load_env.php';
 
         <div class="row mt-3 justify-content-center">
             <div class="col-2">
-                <input class="form-control form-control-lg" type="password" placeholder="CARTÃO" id="input_cartao">
-            </div>
-        </div>
-
-        <div class="row justify-content-center mt-3">
-            <div class="card text-bg-info" style="width: 50rem;">
-                <div class="card-header placeholder-glow">
-                    <span class="placeholder col-3"></span>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title placeholder-glow">
-                        <span class="placeholder col-6"></span>
-                    </h5>
-                    <p class="card-text placeholder-glow">
-                        <span class="placeholder col-7"></span>
-                        <span class="placeholder col-4"></span>
-                        <span class="placeholder col-4"></span>
-                    </p>
+                <div class="input-group input-group-lg">
+                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-id-card"></i></span>
+                    <input type="text" class="form-control" id="input_cartao" placeholder="CARTÃO" aria-label="CARTÃO"
+                        aria-describedby="basic-addon1">
                 </div>
             </div>
         </div>
 
-    </div>
-
-    <div class="container-fluid pt-4">
-        <div class="row overflow-auto ps-3" style="width:100%; max-height: 470px">
-            
-                <div class="card text-bg-secondary mb-2">
-                    <div class="card-header text-bg-secondary text-dark">
-                        123456
-                    </div>
+        <div id="card-display">
+            <div class="row justify-content-center placeholder-glow mt-3" id="display-espera">
+                <div class="card placeholder" style="width: 50rem; height: 10rem;">
                     <div class="card-body">
-                        <blockquote class="blockquote mb-0 text-dark">
-                            <p>EDER MACHADO</p>
-                            <footer class="blockquote-footer text-white-50">
-                                Entrega de cesta em:
-                                <cite title="Source Title">22/01/2024 14:35</cite>
-                            </footer>
-                        </blockquote>
                     </div>
                 </div>
-                <div class="card text-bg-secondary mb-2">
-                    <div class="card-header text-bg-secondary text-dark">
-                        123456
-                    </div>
-                    <div class="card-body">
-                        <blockquote class="blockquote mb-0 text-dark">
-                            <p>EDER MACHADO</p>
-                            <footer class="blockquote-footer text-white-50">
-                                Entrega de cesta em:
-                                <cite title="Source Title">22/01/2024 14:35</cite>
-                            </footer>
-                        </blockquote>
-                    </div>
-                </div>
-                <div class="card text-bg-secondary mb-2">
-                    <div class="card-header text-bg-secondary text-dark">
-                        123456
-                    </div>
-                    <div class="card-body">
-                        <blockquote class="blockquote mb-0 text-dark">
-                            <p>EDER MACHADO</p>
-                            <footer class="blockquote-footer text-white-50">
-                                Entrega de cesta em:
-                                <cite title="Source Title">22/01/2024 14:35</cite>
-                            </footer>
-                        </blockquote>
-                    </div>
-                </div>
+            </div>
         </div>
-    </div>
+
+        <!-- <div class="row justify-content-center placeholder-glow mt-3 visually-hidden-focusable" id="display-error">
+            <div class="card bg-danger" style="width: 50rem; height: 10rem;">
+            <div class="card-body text-light text-center display-4 d-flex align-items-center fw-bolder">
+                    <p class="m-auto" id="card-text-error">...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center placeholder-glow mt-3 visually-hidden-focusable" id="display-sucesso">
+            <div class="card bg-success" style="width: 50rem; height: 10rem;">
+                <div class="card-body text-light text-center display-4 d-flex align-items-center fw-bolder ">
+                    <p class="m-auto" id="card-text-sucesso">...</p>
+                </div>
+            </div>
+        </div>
+
+    </div> -->
+
+        <div class="container pt-4">
+            <div id="card-list" class="row overflow-auto ps-3" style="width:100%; max-height: 470px">
+            </div>
+        </div>
 
 
         <div class="footer fixed-bottom text-white-50 font-weight-light text-center bg-dark shadow-lg">
 
-            <div class="card-header align-items-center">
+            <div class="card-header align-items-center pt-1">
                 <div class="h6 text-white font-weight-light">&copy;
                     <?php echo date('Y') . " Delivery de Cestas - Prefeitura de Agudos/SP"; ?>
                 </div>
-                <div class="h6 text-white-50 font-weight-light" style="margin-top: -0.5em;">Vesão
+                <div class="h6 text-white-50 font-weight-light" style="margin-top: -0.5em;">Versão
                     <?php echo $_ENV['VERSION']; ?>
                 </div>
             </div>
@@ -159,6 +128,7 @@ include_once '../configs/load_env.php';
         <script src="https://momentjs.com/downloads/moment.min.js"></script>
         <script src="https://momentjs.com/downloads/moment-timezone-with-data.min.js"></script>
         <script src="ws.js"></script>
+        <script src="card.js"></script>
 
         <?php echo '<script type="text/javascript"> var username="' . $user_nome . '"; var userid="' . $user_id . '"; </script>'; ?>
 
