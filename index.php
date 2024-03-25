@@ -2,16 +2,13 @@
 
 session_start();
 
-if (isset ($_SESSION['key']) && $_SESSION['key'] == 'KLnNolTydrt56787897hggfs6tkjc3fv2va65fd') {
+if (!isset ($_SESSION['key']) or $_SESSION['key'] != 'KLnNolTydrt56787897hggfs6tkjc3fv2va65fd'):
+    header("Location: logar.php");
+    die();
 
     if ($_SESSION['permissao'] == 1) {
         header("Location: /delivery");
     }
-
-} else {
-    header("/logar.php");
-}
-
 
 $user_nome = isset ($_SESSION['nome']) ? $_SESSION['nome'] : 'UNKNOW';
 $user_id = $_SESSION['id'];
