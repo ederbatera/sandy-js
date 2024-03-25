@@ -5,6 +5,7 @@ session_start();
 if (!isset ($_SESSION['key']) or $_SESSION['key'] != 'KLnNolTydrt56787897hggfs6tkjc3fv2va65fd'):
     header("Location: logar.php");
     die();
+endif;
 
     if ($_SESSION['permissao'] == 1) {
         header("Location: /delivery");
@@ -85,7 +86,7 @@ include_once 'configs/load_env.php';
                             data-bs-target="#modalChangePerfil" onclick="getUsuario(userid)"
                             style="cursor:pointer;">Perfil</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" onclick="window.location.href='assets/_logout.php'">Sair</a>
+                        <a class="dropdown-item" onclick="window.location.href='logout.php'" style="cursor:pointer;">Sair</a>
                     </div>
                 </div>
             </div>
