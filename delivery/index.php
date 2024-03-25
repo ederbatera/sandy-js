@@ -3,7 +3,7 @@
 session_start();
 
 if (!isset ($_SESSION['key']) or $_SESSION['key'] != 'KLnNolTydrt56787897hggfs6tkjc3fv2va65fd'):
-    header("Location:logar.php");
+    header("Location: ../logar.php");
     die();
 endif;
 
@@ -11,8 +11,7 @@ endif;
 $user_nome = isset ($_SESSION['nome']) ? $_SESSION['nome'] : 'UNKNOW';
 $user_id = $_SESSION['id'];
 
-// setcookie('user_name_katrina', $user_nome);
-// setcookie('user_id_katrina',$user_id);
+
 include_once '../configs/load_env.php';
 ?>
 <!DOCTYPE html>

@@ -1,3 +1,24 @@
+<?php
+
+session_start();
+
+if (isset ($_SESSION['key']) && $_SESSION['key'] == 'KLnNolTydrt56787897hggfs6tkjc3fv2va65fd') {
+
+    if ($_SESSION['permissao'] == 1) {
+        header("Location: /delivery");
+    }
+
+} else {
+    header("/logar.php");
+}
+
+
+$user_nome = isset ($_SESSION['nome']) ? $_SESSION['nome'] : 'UNKNOW';
+$user_id = $_SESSION['id'];
+$permissao = $_SESSION['permissao'];
+include_once 'configs/load_env.php';
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -67,16 +88,16 @@
                 <ul class="navbar-nav nav nav-tab nav-pills" id="kv-1" role="tablist">
 
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link px-3 active" style="cursor:pointer;" data-bs-target="#tab-dashboard" role="tab"
-                            data-bs-toggle="tab" aria-controls="tab-dashboard" aria-selected="true">
+                        <a class="nav-link px-3 active" style="cursor:pointer;" data-bs-target="#tab-dashboard"
+                            role="tab" data-bs-toggle="tab" aria-controls="tab-dashboard" aria-selected="true">
                             <i class="fa-solid fa-chart-line fa-xl"></i>
                             <span class="">Dashboard</span>
                         </a>
                     </li>
 
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link px-3" style="cursor:pointer;" data-bs-target="#tab-funcionarios"
-                            role="tab" data-bs-toggle="tab" aria-controls="tab-funcionarios" aria-selected="true">
+                        <a class="nav-link px-3" style="cursor:pointer;" data-bs-target="#tab-funcionarios" role="tab"
+                            data-bs-toggle="tab" aria-controls="tab-funcionarios" aria-selected="true">
                             <i class="fa-solid fa-user-tag fa-xl"></i>
                             <span class="">Funcionários</span>
                         </a>
