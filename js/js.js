@@ -152,7 +152,7 @@ $( "#formAddFuncionario" ).on( "submit", function( event ) {
     }
     data = dataUpper
 
-    $.post( "../assets/_edit_funcionario.php", 
+    $.post( "../assets/_edit_funcionario.php",
       {
         "operacao": "adicionar",
         "matricula": data.matricula,
@@ -170,6 +170,7 @@ $( "#formAddFuncionario" ).on( "submit", function( event ) {
         "direito_cesta": direito,
         "opcao_cesta": opcao,
         "ativo": ativo,
+        "user_id": user_id,
       }
     ).done(function( data ) {
       console.log(data);
@@ -238,6 +239,7 @@ $( "#formAddFuncionario" ).on( "submit", function( event ) {
       "direito_cesta": direito,
       "opcao_cesta": opcao,
       "ativo": ativo,
+      "user_id": user_id,
     }
   ).done(function( response ) {
     // console.log( data );

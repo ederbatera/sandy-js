@@ -3,9 +3,22 @@
 if (isset($_POST["operacao"])) 
     {
         $operacao   = $_POST["operacao"];
+        $user_id   = intval($_POST["user_id"]);
         $response   = [];
         include_once '_conexao.php';
         $pdo = Conexao::getInstance();
+
+        //VERIFICANDO A PERMISSÃO
+        $query = $pdo->prepare("SELECT permissao FROM usuarios WHERE id = {$user_id}");
+        $query->execute();    
+        $perm = $query->fetch(PDO::FETCH_OBJ);
+
+        if($perm->permissao < 1){
+            $response['error']      = true;
+            $response['message']    = "Usuário sem permissão.";
+            die(json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        }
+        
 
         switch ($operacao) { 
             case 'adicionar':

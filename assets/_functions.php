@@ -76,3 +76,11 @@ include_once '_conexao.php';
         }
 
     }
+
+    function getPermissao() {
+        $pdo = Conexao::getInstance();   
+        $query = $pdo->prepare("SELECT permissao FROM usuarios WHERE id = 1");
+        $query->execute();    
+        $data = $query->fetch(PDO::FETCH_OBJ);
+        echo "Permissão: ".var_dump($data->permissao);
+    }

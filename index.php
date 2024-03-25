@@ -36,7 +36,7 @@ include_once 'configs/load_env.php';
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link href="css/tabs.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
-    <?php echo '<script type="text/javascript"> var username="' . $user_nome . '"; var userid="' . $user_id . '"; </script>'; ?>
+    <?php echo '<script type="text/javascript"> var username="' . $user_nome . '"; var user_id="' . $user_id . '"; </script>'; ?>
 </head>
 
 <body class="fs-6">
