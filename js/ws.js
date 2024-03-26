@@ -7,12 +7,9 @@
 
 
   socket.on('update', function(payload){
-    payload = JSON.parse(payload)
-    console.log(payload)
     $('#eventWS').html(payload.message);
-
-  }); 
-
+  });
+  
   socket.on('connections-count', function(payload){
     $('#usersWS').html(payload);
     //console.log('Clients count: '+payload) //usersWS

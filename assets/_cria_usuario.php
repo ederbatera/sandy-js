@@ -33,7 +33,7 @@ $pdo = conexao::getInstance();
         $stm->bindValue(2, 'A');
         $stm->execute();
         $retorno = $stm->fetch(PDO::FETCH_OBJ);
-        if(isset($retorno->permissao) && $retorno->permissao > 6 ):
+        if(isset($retorno->permissao) && $retorno->permissao > 2 ):
 
 
 
@@ -43,7 +43,7 @@ $pdo = conexao::getInstance();
                 $stm->execute();
                 if ($stm):
                     
-                    $sql2 = "INSERT INTO log_usuario (usuario, action) VALUES ('{$userOn}', 'ADICIONOU UM NOVO USUÁRIO DO SISTEMA: {$nome}.')";
+                    $sql2 = "INSERT INTO log_usuarios (id_user, msg) VALUES ('{$_POST['user_id_add_usuario']}', '{$userOn} ADICIONOU UM NOVO USUÁRIO : {$matricula} - {$nome} {$sobrenome}.')";
                     $stm2 = $pdo->prepare($sql2);
                     $stm2->execute();
                     echo '{"status" : "ok", "icon" : "success", "title" : "Sucesso!", "html" : "Usuário '.$nome.' '.$sobrenome.' adicionado!"}';

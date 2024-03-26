@@ -8,27 +8,43 @@ document.getElementById('input_cartao').addEventListener('keypress', async funct
 
         if (numero !== '') {
             try {
-                const res = await fetch(`../assets/_get_funcionario_whith_card.php?card=${numero}`);
-                const response = await res.json();
+                // const res = await fetch(`../assets/_delivery.php?card=${numero}`);
+                // const response = await res.json();
+                $.post('../assets/_delivery.php',
+                    {
+                        "card": numero,
+                        "user_id": user_id,
+                        "user_name" : user_name
 
-                if (response.localizado === 1) {
-                    if (response.saldo === 1) {
-                        cardDisplay(true, "success", "Entrega com sucesso!")
-                        let data_entrega = moment.tz(new Date(), "America/Sao_Paulo")
-                        adicionarCard(response.matricula, response.nome, data_entrega.format('DD/MM/YYYY HH:mm:ss'))
-                    } else {
-                        cardDisplay(true, "danger", "Sem saldo")
-                    }
-                } else {
-                    cardDisplay(true, "danger", "Cartão não cadastrado!")
-                }
+                    }).done(function (response) {
+                        if (!response?.error) {
+                            cardDisplay(true, "success", response.msg)
+                            let data_entrega = moment.tz(new Date(), "America/Sao_Paulo")
+                            adicionarCard(response.matricula, response.nome, data_entrega.format('DD/MM/YYYY HH:mm:ss'))
+                            socket.emit("update", {
+                                type: 'delivery', 
+                                message: `${response.nome} retirou sua cesta.`,
+                                log: {
+                                    user: user_id,
+                                    funcionario: response.id,
+                                    data: new Date()
+                                } 
+                            } );                  
+                        } else {
+                            cardDisplay(true, "danger", response.msg)
+                        }
 
-                setTimeout(() => {
-                    cardDisplay(false, "", "")
-                }, 5000);
+                        setTimeout(() => {
+                            cardDisplay(false, "", "")
+                        }, 5000);
+
+                    })
 
             } catch (error) {
-                console.error('Erro ao chamar a API:', error);
+                cardDisplay(true, "danger", error)
+                setTimeout(() => {
+                    cardDisplay(false, "", "")
+                }, 10000);
             }
 
             this.value = '';
@@ -89,12 +105,12 @@ function cardDisplay(visibily, color, text) {
             </div>
         </div>`
         :
-        card = 
+        card =
         `<div class="row justify-content-center placeholder-glow mt-3" id="display-espera">
             <div class="card placeholder" style="width: 50rem; height: 10rem;">
             </div>
         </div>`
-        const div = document.getElementById('card-display')
-        div.innerHTML = '';
-        div.insertAdjacentHTML('beforeend', card);
+    const div = document.getElementById('card-display')
+    div.innerHTML = '';
+    div.insertAdjacentHTML('beforeend', card);
 }
