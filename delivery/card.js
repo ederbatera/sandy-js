@@ -1,20 +1,25 @@
 
+let myTimeout;
+
+const emptCard = (time) => {
+    myTimeout = setTimeout(() => {
+        cardDisplay(false, "", "")
+    }, time);
+}
+
 
 document.getElementById('input_cartao').addEventListener('keypress', async function (event) {
     if (event.key === 'Enter') {
         event.preventDefault();
-
         const numero = parseInt(this.value.trim());
-
+        clearTimeout(myTimeout)
         if (numero !== '') {
             try {
-                // const res = await fetch(`../assets/_delivery.php?card=${numero}`);
-                // const response = await res.json();
                 $.post('../assets/_delivery.php',
                     {
                         "card": numero,
                         "user_id": user_id,
-                        "user_name" : user_name
+                        "user_name": user_name
 
                     }).done(function (response) {
                         if (!response?.error) {
@@ -22,31 +27,23 @@ document.getElementById('input_cartao').addEventListener('keypress', async funct
                             let data_entrega = moment.tz(new Date(), "America/Sao_Paulo")
                             adicionarCard(response.matricula, response.nome, data_entrega.format('DD/MM/YYYY HH:mm:ss'))
                             socket.emit("update", {
-                                type: 'delivery', 
+                                type: 'delivery',
                                 message: `${response.nome} retirou sua cesta.`,
                                 log: {
                                     user: user_id,
                                     funcionario: response.id,
                                     data: new Date()
-                                } 
-                            } );                  
+                                }
+                            });
                         } else {
                             cardDisplay(true, "danger", response.msg)
                         }
-
-                        setTimeout(() => {
-                            cardDisplay(false, "", "")
-                        }, 5000);
-
+                        emptCard(5000)
                     })
-
             } catch (error) {
                 cardDisplay(true, "danger", error)
-                setTimeout(() => {
-                    cardDisplay(false, "", "")
-                }, 10000);
+                emptCard(10000)
             }
-
             this.value = '';
             this.focus();
         }
@@ -74,7 +71,6 @@ function criarCard(matricula, nome, data_entrega) {
         `;
 }
 
-
 // Função para adicionar cards à lista e manter apenas os últimos 3
 function adicionarCard(matricula, nome, data_entrega) {
     // Cria o card
@@ -99,7 +95,7 @@ function cardDisplay(visibily, color, text) {
         card =
         `<div class="row justify-content-center placeholder-glow mt-3">
             <div class="card bg-${color}" style="width: 50rem; height: 10rem;">
-                <div class="card-body text-light text-center display-4 d-flex align-items-center fw-bolder">
+                <div class="card-body text-light text-center fs-4 d-flex align-items-center fw-bolder">
                     <p class="m-auto">${text}</p>
                 </div>
             </div>

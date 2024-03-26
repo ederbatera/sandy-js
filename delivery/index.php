@@ -2,13 +2,13 @@
 
 session_start();
 
-if (!isset ($_SESSION['key']) or $_SESSION['key'] != 'KLnNolTydrt56787897hggfs6tkjc3fv2va65fd'):
+if (!isset($_SESSION['key']) or $_SESSION['key'] != 'KLnNolTydrt56787897hggfs6tkjc3fv2va65fd'):
     header("Location: ../logar.php");
     die();
 endif;
 
 
-$user_nome = isset ($_SESSION['nome']) ? $_SESSION['nome'] : 'UNKNOW';
+$user_nome = isset($_SESSION['nome']) ? $_SESSION['nome'] : 'UNKNOW';
 $user_id = $_SESSION['id'];
 
 
@@ -45,13 +45,14 @@ include_once '../configs/load_env.php';
                 <img src="../../img/logo/logo.png" width="60px" height="60px" alt="PREFEITURA MUNICIPAL DE AGUDOS">
             </div>
             <div class="col">
-                <h3 class="text-center mt-n1"> Delivery de Cestas Básicas</h3>
+                <h3 class="text-center mt-n1"> Entrega de Cestas Básicas</h3>
             </div>
             <div class="col text-end">
                 <span>
+                    <i class="fa-regular fa-user p-1"></i>
                     <?php echo $user_nome; ?>
                 </span>
-                <a class="btn btn-primary">Sair</a>
+                <a class="btn btn-primary" href="../logout.php">Sair</a>
             </div>
         </div>
 
@@ -108,7 +109,7 @@ include_once '../configs/load_env.php';
 
             <div class="card-header align-items-center pt-1">
                 <div class="h6 text-white font-weight-light">&copy;
-                    <?php echo date('Y') . " Delivery de Cestas - Prefeitura de Agudos/SP"; ?>
+                    <?php echo date('Y') . " Entrega de Cestas - Prefeitura de Agudos/SP"; ?>
                 </div>
                 <div class="h6 text-white-50 font-weight-light" style="margin-top: -0.5em;">Versão
                     <?php echo $_ENV['VERSION']; ?>

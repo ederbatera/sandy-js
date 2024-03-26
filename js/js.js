@@ -173,7 +173,6 @@ $( "#formAddFuncionario" ).on( "submit", function( event ) {
         "user_id": user_id,
       }
     ).done(function( data ) {
-      console.log(data);
       var retorno = JSON.parse(data);
         if(!retorno.error){
               Swal.fire({
@@ -186,6 +185,15 @@ $( "#formAddFuncionario" ).on( "submit", function( event ) {
               $("#modalAddFuncionario").modal("hide")
               // getFuncionarios(false);
               fetchData();
+              socket.emit("update", {
+                type: 'cadastro',
+                message: `${user_name} cadastrou ${data.nome}`,
+                log: {
+                  user: user_id,
+                  funcionario: data.nome,
+                  data: new Date()
+                }
+              });
         }else{
               Swal.fire({
                 icon: 'error',
@@ -257,6 +265,15 @@ $( "#formAddFuncionario" ).on( "submit", function( event ) {
             //console.log(__FUNCIONARIOS[data.id])
             //getFuncionarios(false);
             fetchData();
+            socket.emit("update", {
+              type: 'cadastro',
+              message: `${user_name} atualizou ${data.nome}`,
+              log: {
+                user: user_id,
+                funcionario: data.nome,
+                data: new Date()
+              }
+            });
       }else{
             Swal.fire({
               icon: 'error',

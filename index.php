@@ -2,21 +2,21 @@
 
 session_start();
 
-if (!isset ($_SESSION['key']) or $_SESSION['key'] != 'KLnNolTydrt56787897hggfs6tkjc3fv2va65fd'):
+if (!isset($_SESSION['key']) or $_SESSION['key'] != 'KLnNolTydrt56787897hggfs6tkjc3fv2va65fd'):
     header("Location: logar.php");
     die();
 endif;
 
-if ($_SESSION['permissao'] == 1) {
+if ($_SESSION['permissao'] < 1) {
     header("Location: /delivery");
 }
 
-$user_nome = isset ($_SESSION['nome']) ? $_SESSION['nome'] : 'UNKNOW';
+$user_nome = isset($_SESSION['nome']) ? $_SESSION['nome'] : 'UNKNOW';
 $user_id = $_SESSION['id'];
 $permissao = $_SESSION['permissao'];
 
-setcookie('user_name_sandy', $user_nome);
-setcookie('user_id_sandy', $user_id);
+setcookie('@Sandy:user_name', $user_nome);
+setcookie('@Sandy:user_id', $user_id);
 
 include_once 'configs/load_env.php';
 ?>
@@ -64,23 +64,27 @@ include_once 'configs/load_env.php';
                     <span id="estoqueAll"> ? </span>
                 </span>
             </div>
-            <div class="col-3">
-                <span class="text-muted pl-2">Último evento: </span>
-                <span class="badge bg-light text-primary fs-6 ml-3">
+            <div class="col-4">
+                <span class="text-muted pl-2">Eventos: </span>
+                <span class="badge bg-light text-primary ml-3" style="font-size: 14px">
                     <span id="eventWS">Aguardando...</span>
                 </span>
             </div>
             <div class="col-auto text-end px-1">
                 <div class="dropdown">
-                    <button class="btn btn-link dropdown-toggle text-primary pr-2 text-decoration-none"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa-regular fa-user fa-xl p-1"></i> <strong>
+                    <button class="btn btn-outline-dark dropdown-toggle pr-2" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="fa-regular fa-user p-1"></i>
+                        <strong>
                             <?php echo $user_nome; ?>
                         </strong>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-right">
-                        <li><a class="dropdown-item" type="button" data-bs-toggle="modal" onclick="getUsuario(userid)" data-bs-target="#modalChangePerfil">Perfil</a></li>                        
-                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" type="button" data-bs-toggle="modal" onclick="getUsuario(user_id)"
+                                data-bs-target="#modalChangePerfil">Perfil</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
                         <li><a class="dropdown-item" href="#">-</a></li>
                         <li><a class="dropdown-item" href="logout.php">Sair</a></li>
                     </ul>
@@ -91,49 +95,43 @@ include_once 'configs/load_env.php';
     </div>
 
     <div id="exTab3" class="container-fluid">
-        <nav class="navbar navbar-expand-lg sticky-top">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon text-warning"></span>
-            </button>
+        <div class="row justify-content-between">
+            <div class="col-11">
+                <nav class="navbar navbar-expand-sm sticky-top">
+                    <ul class="navbar-nav nav nav-tab nav-pills" id="kv-1" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link px-3 active" style="cursor:pointer;" data-bs-target="#tab-dashboard"
+                                role="tab" data-bs-toggle="tab" aria-controls="tab-dashboard" aria-selected="true">
+                                <i class="fa-solid fa-chart-line fa-xl"></i>
+                                <span class="">Dashboard</span>
+                            </a>
+                        </li>
 
-            <div class="collapse navbar-collapse justify-content-start" id="navbarNav">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link px-3" style="cursor:pointer;" data-bs-target="#tab-funcionarios"
+                                role="tab" data-bs-toggle="tab" aria-controls="tab-funcionarios" aria-selected="true">
+                                <i class="fa-solid fa-user-tag fa-xl"></i>
+                                <span class="">Funcionários</span>
+                            </a>
+                        </li>
 
-                <ul class="navbar-nav nav nav-tab nav-pills" id="kv-1" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link px-3" style="cursor:pointer;" data-bs-target="#tab-cestas" role="tab"
+                                data-bs-toggle="tab" aria-controls="tab-cestas" aria-selected="false">
+                                <i class="fa-solid fa-utensils fa-xl"></i>
+                                <span class="ml-1">Cestas</span>
+                            </a>
+                        </li>
 
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link px-3 active" style="cursor:pointer;" data-bs-target="#tab-dashboard"
-                            role="tab" data-bs-toggle="tab" aria-controls="tab-dashboard" aria-selected="true">
-                            <i class="fa-solid fa-chart-line fa-xl"></i>
-                            <span class="">Dashboard</span>
-                        </a>
-                    </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link px-3" style="cursor:pointer;" data-bs-target="#tab-estoque" role="tab"
+                                data-bs-toggle="tab" aria-controls="tab-estoque" aria-selected="false">
+                                <i class="fa-solid fa-boxes-stacked fa-xl"></i>
+                                <span class="ml-1">Estoque</span>
+                            </a>
+                        </li>
 
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link px-3" style="cursor:pointer;" data-bs-target="#tab-funcionarios" role="tab"
-                            data-bs-toggle="tab" aria-controls="tab-funcionarios" aria-selected="true">
-                            <i class="fa-solid fa-user-tag fa-xl"></i>
-                            <span class="">Funcionários</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link px-3" style="cursor:pointer;" data-bs-target="#tab-cestas" role="tab"
-                            data-bs-toggle="tab" aria-controls="tab-cestas" aria-selected="false">
-                            <i class="fa-solid fa-utensils fa-xl"></i>
-                            <span class="ml-1">Cestas</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link px-3" style="cursor:pointer;" data-bs-target="#tab-estoque" role="tab"
-                            data-bs-toggle="tab" aria-controls="tab-estoque" aria-selected="false">
-                            <i class="fa-solid fa-boxes-stacked fa-xl"></i>
-                            <span class="ml-1">Estoque</span>
-                        </a>
-                    </li>
-
-                    <!-- <li class="nav-item" role="presentation">
+                        <!-- <li class="nav-item" role="presentation">
                         <a class="nav-link px-3" style="cursor:pointer;" data-bs-target="#tab-cartoes" role="tab"
                             data-bs-toggle="tab" aria-controls="tab-cartoes" aria-selected="false">
                             <i class="fa-regular fa-id-card fa-xl"></i>
@@ -141,38 +139,48 @@ include_once 'configs/load_env.php';
                         </a>
                     </li> -->
 
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link px-3" style="cursor:pointer;" data-bs-target="#tab-fornecedores" role="tab"
-                            data-bs-toggle="tab" aria-controls="tab-fornecedores" aria-selected="false">
-                            <i class="fa-solid fa-truck-fast fa-xl"></i>
-                            <span class="ml-1">Fornecedores</span>
-                        </a>
-                    </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link px-3" style="cursor:pointer;" data-bs-target="#tab-fornecedores"
+                                role="tab" data-bs-toggle="tab" aria-controls="tab-fornecedores" aria-selected="false">
+                                <i class="fa-solid fa-truck-fast fa-xl"></i>
+                                <span class="ml-1">Fornecedores</span>
+                            </a>
+                        </li>
 
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link px-3" style="cursor:pointer;" data-bs-target="#tab-usuarios" role="tab"
-                            data-bs-toggle="tab" aria-controls="tab-usuarios" aria-selected="false">
-                            <i class="fa-solid fa-user fa-lg"></i>
-                            <span class="ml-1">Usuários</span>
-                        </a>
-                    </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link px-3" style="cursor:pointer;" data-bs-target="#tab-usuarios" role="tab"
+                                data-bs-toggle="tab" aria-controls="tab-usuarios" aria-selected="false">
+                                <i class="fa-solid fa-user fa-lg"></i>
+                                <span class="ml-1">Usuários</span>
+                            </a>
+                        </li>
 
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link px-3" style="cursor:pointer;" data-bs-target="#tab-registros" role="tab"
-                            data-bs-toggle="tab" aria-controls="tab-registros" aria-selected="false">
-                            <i class="fa-solid fa-list-ul fa-lg"></i>
-                            <span class="ml-1">Registros</span>
-                        </a>
-                    </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link px-3" style="cursor:pointer;" data-bs-target="#tab-registros" role="tab"
+                                data-bs-toggle="tab" aria-controls="tab-registros" aria-selected="false">
+                                <i class="fa-solid fa-list-ul fa-lg"></i>
+                                <span class="ml-1">Registros</span>
+                            </a>
+                        </li>
 
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link px-3" style="cursor:pointer;" data-bs-target="#tab-configuracoes" role="tab"
-                            data-bs-toggle="tab" aria-controls="tab-configuracoes" aria-selected="false">
-                            <i class="fa-solid fa-gears fa-lg"></i>
-                            <span class="ml-1">Configurações</span>
-                        </a>
-                    </li>
-        </nav>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link px-3" style="cursor:pointer;" data-bs-target="#tab-configuracoes"
+                                role="tab" data-bs-toggle="tab" aria-controls="tab-configuracoes" aria-selected="false">
+                                <i class="fa-solid fa-gears fa-lg"></i>
+                                <span class="ml-1">Configurações</span>
+                            </a>
+                        </li>
+                    </ul>
+
+
+
+                </nav>
+            </div>
+            <div class="col-1 text-end">
+                <a class="btn btn-outline-success" href="/delivery"> Entregas</a>
+            </div>
+        </div>
+
 
         <div id="myTabContent" class="tab-content rounded">
             <?php

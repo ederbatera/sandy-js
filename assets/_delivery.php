@@ -37,7 +37,7 @@ if ($card && $user_id && $user_name):
                     $funcionario->localizado = 1;
                     $funcionario->error = false;
                     $funcionario->saldo = 0;
-                    $funcionario->msg = "Entrega com sucesso!";
+                    $funcionario->msg = "Entrega realizada com sucesso!";
                 } catch (Exception $err) {
                     $funcionario->localizado = 1;
                     $funcionario->error = true;
@@ -62,7 +62,7 @@ if ($card && $user_id && $user_name):
     else:
         $funcionario['error'] = true;
         $funcionario['localizado'] = 0;
-        $funcionario['msg'] = "Não localizado funcionário vinculado a este cartão";
+        $funcionario['msg'] = "Cartão não cadastrado!";
         die (json_encode($funcionario, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
     endif;
 
@@ -76,29 +76,3 @@ endif;
 
 header('Content-Type: application/json');
 echo json_encode($funcionario, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-
-
-
-// POST WEBSOCKET
-
-// include_once "../configs/load_env.php";
-// $postData = array(
-//     'type' => 'delivery',
-//     'message' => $funcionario->nome. ' retirou sua cesta em '. time(),
-//     'payload' => [
-//         'user_id' => $user_id,
-//         'id' => $funcionario->id
-//     ]
-
-// );
-// $postUrl = 'https://socket.agudos.digital/sandy';
-// $ch = curl_init($postUrl);
-// curl_setopt($ch, CURLOPT_POST, 1);
-// curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($postData));
-// curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-//     'Content-Type: application/json',
-//     'token: '.$_ENV['WEBSOCKET_TOKEN']
-// ));
-// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-// curl_exec($ch);
-// curl_close($ch);

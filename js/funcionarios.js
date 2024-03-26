@@ -296,6 +296,15 @@ const adicionaSaldo = (userid, username, modal = false) => {
               //openModalViewFuncionario(userid);
             }
             fetchData();
+            socket.emit("update", {
+              type: 'saldo',
+              message: `${user_name} adicionou saldo à ${username}`,
+              log: {
+                user: user_id,
+                funcionario: userid,
+                data: new Date()
+              }
+            });
           } else {
             Swal.fire({
               icon: 'error',
@@ -358,6 +367,15 @@ const removeSaldo = (userid, username, modal = false) => {
               //openModalViewFuncionario(userid);
             }
             fetchData();
+            socket.emit("update", {
+              type: 'saldo',
+              message: `${user_name} removeu saldo de ${username}`,
+              log: {
+                user: user_id,
+                funcionario: userid,
+                data: new Date()
+              }
+            });
           } else {
             Swal.fire({
               icon: 'error',
