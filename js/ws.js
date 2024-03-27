@@ -6,7 +6,17 @@ socket.on('timestamp', function (payload) {
 
 
 socket.on('update', function (payload) {
+  
   $('#eventWS').html(payload.message);
+  
+  switch (payload.type) {
+    case 'delivery':
+      getEstoque()
+      break;
+  
+    default:
+      break;
+  }
 });
 
 socket.on('connections-count', function (payload) {

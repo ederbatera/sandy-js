@@ -48,11 +48,23 @@ include_once '../configs/load_env.php';
                 <h3 class="text-center mt-n1"> Entrega de Cestas Básicas</h3>
             </div>
             <div class="col text-end">
-                <span>
+                <!-- <span>
                     <i class="fa-regular fa-user p-1"></i>
                     <?php echo $user_nome; ?>
                 </span>
-                <a class="btn btn-primary" href="../logout.php">Sair</a>
+                <a class="btn btn-primary" href="../logout.php">Sair</a> -->
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-outline-dark dropdown-toggle pr-2" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="fa-regular fa-user p-1"></i>
+                        <strong>
+                            <?php echo $user_nome; ?>
+                        </strong>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-right">
+                        <li><a class="dropdown-item" href="../logout.php">Sair</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
 

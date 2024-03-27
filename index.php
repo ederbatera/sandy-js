@@ -214,6 +214,7 @@ include_once 'configs/load_env.php';
     <script src="js/functions.js"></script>
     <script src="js/gets.js"></script>
     <script src="js/usuarios.js"></script>
+    <script src="js/estoque.js"></script>
     <script src="js/funcionarios.js"></script>
     <script src="js/cestas.js"></script>
     <script src="js/js.js"></script>
