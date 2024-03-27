@@ -19,7 +19,7 @@
 	 	</div>
 	 </div>
 	<div class="row mt-4 text-center justify-content-center">
-		<div class="col-12 overflow-auto" style="height: 68vh">
+		<div class="col-12 overflow-auto" style="height: 68vh"> 
 			<table class="table table-success table-sm table-borderless table-responsive table-hover text-start" id="table-funcionarios">
 			<!-- <table id="table-funcionarios"> -->
 				<thead class="table-primary sticky-top" style="background-color: #41605890; z-index: 10;">

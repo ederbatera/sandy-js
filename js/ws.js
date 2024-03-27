@@ -27,7 +27,8 @@ socket.on('connections-count', function (payload) {
 socket.on("connect", () => {
   localStorage.setItem("socket_id", socket.id);
   console.log('Socket ID: ' + socket.id)
-  $('#server-status').html('<i class="fa-solid fa-rotate-right fa-spin fa-xl" style="color: #00ff00;"></i>');
+  //$('#server-status').html('<i class="fa-solid fa-rotate-right fa-spin fa-xl" style="color: #00ff00;"></i>');
+  $('#server-status').html('<i class="fa-solid fa-rotate-right fa-spin fa-xl text-success"></i>');
   // socket.emit("update", {
   //   type: 'connect',
   //   message: `${user_name} logou no sistema.`,

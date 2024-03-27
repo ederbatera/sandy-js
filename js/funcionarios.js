@@ -21,6 +21,11 @@ async function fetchData() {
   try {
     const response = await fetch(url);
     __FUNCIONARIOS = await response.json();
+    const usersWithSaldo = __FUNCIONARIOS.filter(user => user.saldo === 1 );
+    const cardsWhithSaldo = usersWithSaldo.length;
+    $('#funcionariosIndex').html(__FUNCIONARIOS.length);
+    $('#cardsWhithSaldoIndex').html(cardsWhithSaldo);
+    $('#cardsNotSaldoIndex').html(__FUNCIONARIOS.length - cardsWhithSaldo); 
     //sessionStorage.setItem("__FUNCIONARIOS", JSON.stringify(__FUNCIONARIOS) );
     populateTable(getCurrentPageData());
     renderPagination();

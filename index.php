@@ -2,7 +2,7 @@
 
 session_start();
 
-if (!isset ($_SESSION['key']) or $_SESSION['key'] != 'KLnNolTydrt56787897hggfs6tkjc3fv2va65fd'):
+if (!isset($_SESSION['key']) or $_SESSION['key'] != 'KLnNolTydrt56787897hggfs6tkjc3fv2va65fd'):
     header("Location: logar.php");
     die();
 endif;
@@ -11,7 +11,7 @@ if ($_SESSION['permissao'] < 2) {
     header("Location: /delivery");
 }
 
-$user_nome = isset ($_SESSION['nome']) ? $_SESSION['nome'] : 'UNKNOW';
+$user_nome = isset($_SESSION['nome']) ? $_SESSION['nome'] : 'UNKNOW';
 $user_id = $_SESSION['id'];
 $permissao = $_SESSION['permissao'];
 
@@ -46,32 +46,52 @@ include_once 'configs/load_env.php';
             <div class="col-auto align-self-start">
                 <img src="../img/logo/logo.png" class="rounded" alt="..." style="width: 40px; height: 40px">
                 <span class="fs-4">Cestas Básicas </span>
-                <span class="font-weight-light text-muted" style="margin-top: -0.5em; font-size: 12px">Versão <?php echo $_ENV['VERSION']; ?> </span>
+                <span class="font-weight-light text-muted" style="margin-top: -0.5em; font-size: 12px">Versão
+                    <?php echo $_ENV['VERSION']; ?>
+                </span>
             </div>
             <div class="col-auto text-start">
                 <span class="text-muted pl-2">Servidor: </span>
                 <span id="server-status"></span>
                 <span id="timestamp"><span>
             </div>
-            <div class="col-auto">
+            <div class="col-auto text-start">
                 <span class="text-muted pl-2">Usuários Online: </span>
-                <span class="badge bg-warning fw-bold fs-6 ml-3">
+                <span class="badge bg-secondary fw-bold fs-6 ml-3">
                     <span id="usersWS"> ? </span>
                 </span>
             </div>
-            <div class="col-auto">
-                <span class="text-muted pl-2">Estoque: </span>
-                <span class="badge bg-warning fw-bold fs-6 ml-3">
+            <div class="col-auto text-start">
+                <span class="text-muted">Estoque: </span>
+                <span class="badge bg-secondary fw-bold fs-6 ml-3">
                     <span id="estoqueAll"> ? </span>
                 </span>
             </div>
-            <div class="col-4">
-                <span class="text-muted pl-2">Eventos: </span>
+            <div class="col-auto text-start">
+                <span class="text-muted">Funcionários: </span>
+                <span class="badge bg-secondary fw-bold fs-6 ml-3">
+                    <span id="funcionariosIndex"> ? </span>
+                </span>
+            </div>
+            <div class="col-auto text-start">
+                <span class="text-muted">Com saldo: </span>
+                <span class="badge bg-secondary fw-bold fs-6 ml-3">
+                    <span id="cardsWhithSaldoIndex"> ? </span>
+                </span>
+            </div>
+            <div class="col-auto text-start">
+                <span class="text-muted">Sem saldo: </span>
+                <span class="badge bg-secondary fw-bold fs-6 ml-3">
+                    <span id="cardsNotSaldoIndex"> ? </span>
+                </span>
+            </div>
+            <div class="col-3">
+                <span class="text-muted">Eventos: </span>
                 <span class="badge bg-light text-primary ml-3" style="font-size: 14px">
                     <span id="eventWS">Aguardando...</span>
                 </span>
             </div>
-            <div class="col-auto text-end px-1">
+            <div class="col-1 text-end px-1">
                 <div class="dropdown">
                     <button class="btn btn-sm btn-secondary dropdown-toggle pr-2" data-bs-toggle="dropdown"
                         aria-expanded="false">
@@ -178,7 +198,7 @@ include_once 'configs/load_env.php';
                 </nav>
             </div>
             <div class="col-1 text-end">
-                <a class="btn btn-sm btn-success" href="/delivery" target ="_blank"> Entregas</a>
+                <a class="btn btn-sm btn-success" href="/delivery" target="_blank"> Entregas</a>
             </div>
         </div>
 
