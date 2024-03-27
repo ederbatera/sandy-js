@@ -2,16 +2,16 @@
 
 session_start();
 
-if (!isset($_SESSION['key']) or $_SESSION['key'] != 'KLnNolTydrt56787897hggfs6tkjc3fv2va65fd'):
+if (!isset ($_SESSION['key']) or $_SESSION['key'] != 'KLnNolTydrt56787897hggfs6tkjc3fv2va65fd'):
     header("Location: logar.php");
     die();
 endif;
 
-if ($_SESSION['permissao'] < 1) {
+if ($_SESSION['permissao'] < 2) {
     header("Location: /delivery");
 }
 
-$user_nome = isset($_SESSION['nome']) ? $_SESSION['nome'] : 'UNKNOW';
+$user_nome = isset ($_SESSION['nome']) ? $_SESSION['nome'] : 'UNKNOW';
 $user_id = $_SESSION['id'];
 $permissao = $_SESSION['permissao'];
 
@@ -45,7 +45,8 @@ include_once 'configs/load_env.php';
         <div class="row justify-content-between align-items-center">
             <div class="col-auto align-self-start">
                 <img src="../img/logo/logo.png" class="rounded" alt="..." style="width: 40px; height: 40px">
-                <span class="fs-4">Gerenciamento de Cestas Básicas </span>
+                <span class="fs-4">Cestas Básicas </span>
+                <span class="font-weight-light text-muted" style="margin-top: -0.5em; font-size: 12px">Versão <?php echo $_ENV['VERSION']; ?> </span>
             </div>
             <div class="col-auto text-start">
                 <span class="text-muted pl-2">Servidor: </span>
@@ -72,7 +73,7 @@ include_once 'configs/load_env.php';
             </div>
             <div class="col-auto text-end px-1">
                 <div class="dropdown">
-                    <button class="btn btn-outline-dark dropdown-toggle pr-2" data-bs-toggle="dropdown"
+                    <button class="btn btn-sm btn-secondary dropdown-toggle pr-2" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         <i class="fa-regular fa-user p-1"></i>
                         <strong>
@@ -177,7 +178,7 @@ include_once 'configs/load_env.php';
                 </nav>
             </div>
             <div class="col-1 text-end">
-                <a class="btn btn-outline-success" href="/delivery"> Entregas</a>
+                <a class="btn btn-sm btn-success" href="/delivery" target ="_blank"> Entregas</a>
             </div>
         </div>
 
@@ -196,18 +197,7 @@ include_once 'configs/load_env.php';
             ?>
         </div>
 
-
-
     </div>
-
-
-
-
-    <?php
-    include_once "modal.php";
-    include_once "modal_altera_senha.php";
-    include_once "modal_change_perfil.php";
-    ?>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.6.0.min.js"><\/script>')</script>
@@ -221,7 +211,9 @@ include_once 'configs/load_env.php';
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.2/dist/sweetalert2.all.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/functions.js"></script>
     <script src="js/gets.js"></script>
+    <script src="js/usuarios.js"></script>
     <script src="js/funcionarios.js"></script>
     <script src="js/cestas.js"></script>
     <script src="js/js.js"></script>

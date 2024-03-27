@@ -3,9 +3,9 @@
 session_start();
 
 
-// if(isset($_SESSION['key']) &&  $_SESSION['key'] == 'KLnNolTydrt56787897hggfs6tkjc3fv2va65fd'):
-// 	header("Location: /");
-// endif;
+if(isset($_SESSION['key']) &&  $_SESSION['key'] == 'KLnNolTydrt56787897hggfs6tkjc3fv2va65fd'):
+	header("Location: /");
+endif;
 
 
 // Recebe os dados do formulário
@@ -61,18 +61,8 @@ if(!empty($retorno) && $senha == $retorno->senha):
 	$stm2 = $conexao->prepare($sql2);
 	$stm2->execute();
 
-	//header("Location: /");
-	switch ($retorno->permissao) {
-        case 1:
-            header("Location: ../delivery");
-            break;
-        case 2:
-            header("Location: ../");
-            break;
+	header("Location: ../");
 
-        default:
-            header("Location: ../delivery");
-    }
 	
 else:
 	

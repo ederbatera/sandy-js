@@ -4,7 +4,7 @@
     $pdo = Conexao::getInstance();
 
 
-    $query = $pdo->prepare("SELECT id, nome, matricula, cargo, email, permissao, status FROM usuarios");
+    $query = $pdo->prepare("SELECT id, nome, matricula, cargo, email, permissao, data_cadastro, status FROM usuarios");
     $query->execute();
 
     $usuarios = array();

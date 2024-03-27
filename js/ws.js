@@ -1,8 +1,7 @@
 var socket = io('https://ws.agudos.digital', { transports: ['polling'] });
 
 socket.on('timestamp', function (payload) {
-  let dt = moment.tz(payload, "America/Sao_Paulo")
-  $('#timestamp').html('<span class="badge bg-success text-white fw-bold fs-6 ml-3">' + dt.format('DD/MM/YYYY HH:mm:ss') + '</span>');
+  $('#timestamp').html('<span class="badge bg-success text-white fw-bold fs-6 ml-3">' + dataBR(payload) + '</span>');
 });
 
 

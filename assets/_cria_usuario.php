@@ -58,7 +58,7 @@ $pdo = conexao::getInstance();
                 }
 
         else:
-            echo '{"status" : "erro", "icon" : "error", "title" : "Não adicionado", "html" : "Usuário sem permissão de adicionar usuário."}';
+            echo '{"status" : "erro", "icon" : "error", "title" : "Não adicionado", "html" : "Sem permissão para adicionar novos usuários."}';
         endif;
 
     } catch (Exception $e) {

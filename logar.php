@@ -3,19 +3,7 @@
 session_start();
 
 if (isset ($_SESSION['key']) && $_SESSION['key'] == 'KLnNolTydrt56787897hggfs6tkjc3fv2va65fd'):
-
-    switch ($_SESSION['permissao']) {
-        case 1:
-            header("Location: ../delivery");
-            break;
-        case 2:
-            header("Location: ../");
-            break;
-
-        default:
-            header("Location: ../delivery");
-    }
-
+    header("Location: /");
 endif;
 
 ?>
