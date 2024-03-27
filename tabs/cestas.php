@@ -13,7 +13,7 @@
 					<th>Saldo <input class="form-check-input" id="checkBoxSaldoAll" type="checkbox"></th>
 					</tr>
 				</thead>
-				<tbody class="height-150 font-size-12">
+				<tbody class="height-150 table-persona">
 					<!-- Os campos de cada usuário serão adicionados aqui -->
 				</tbody>
 				</table>

@@ -39,10 +39,10 @@ include_once 'configs/load_env.php';
     <?php echo '<script type="text/javascript"> var user_name="' . $user_nome . '"; var user_id="' . $user_id . '"; </script>'; ?>
 </head>
 
-<body class="fs-6">
-
+<body style="font-size:medium;">
     <div class="container-fluid">
-        <div class="row justify-content-between align-items-center">
+        <div class="row justify-content-start align-items-center">
+            
             <div class="col-auto align-self-start">
                 <img src="../img/logo/logo.png" class="rounded" alt="..." style="width: 40px; height: 40px">
                 <span class="fs-4">Cestas Básicas </span>
@@ -50,48 +50,50 @@ include_once 'configs/load_env.php';
                     <?php echo $_ENV['VERSION']; ?>
                 </span>
             </div>
+            
             <div class="col-auto text-start">
                 <!-- <span class="text-muted pl-2">Servidor: </span> -->
                 <span id="server-status"></span>
                 <span id="timestamp"><span>
             </div>
+            
             <div class="col-auto text-start">
-                <span class="text-muted pl-2">Online: </span>
+
+                <span class="text-muted">Online: </span>
                 <span class="badge bg-secondary">
                     <span id="usersWS"> ? </span>
                 </span>
-            </div>
-            <div class="col-auto text-start">
-                <span class="text-muted">Estoque: </span>
+
+                <span class="text-muted ms-2">Estoque: </span>
                 <span class="badge bg-secondary">
                     <span id="estoqueAll"> ? </span>
                 </span>
-            </div>
-            <div class="col-auto text-start">
-                <span class="text-muted">Funcionários: </span>
+
+                <span class="text-muted ms-2">Funcionários: </span>
                 <span class="badge bg-secondary">
                     <span id="funcionariosIndex"> ? </span>
                 </span>
-            </div>
-            <div class="col-auto text-start">
-                <span class="text-muted">Com saldo: </span>
+
+                <span class="text-muted ms-2">Com saldo: </span>
                 <span class="badge bg-secondary">
                     <span id="cardsWhithSaldoIndex"> ? </span>
                 </span>
-            </div>
-            <div class="col-auto text-start">
-                <span class="text-muted">Sem saldo: </span>
+
+                <span class="text-muted ms-2">Sem saldo: </span>
                 <span class="badge bg-secondary">
                     <span id="cardsNotSaldoIndex"> ? </span>
                 </span>
+            
             </div>
-            <div class="col-3 text-start">
-                <span class="text-muted">Eventos: </span>
+            
+            <div class="col-auto text-start">
+                <span class="text-muted ms-2">Eventos: </span>
                 <span class="badge bg-light text-primary" style="font-size: 14px">
                     <span id="eventWS">Aguardando...</span>
                 </span>
             </div>
-            <div class="col-auto text-start">
+            
+            <div class="col-auto ms-auto text-end">
                 <div class="dropdown">
                     <button class="btn btn-sm btn-secondary dropdown-toggle pr-2" data-bs-toggle="dropdown"
                         aria-expanded="false">

@@ -1,7 +1,7 @@
 var socket = io('https://ws.agudos.digital', { transports: ['polling'] });
 
 socket.on('timestamp', function (payload) {
-  $('#timestamp').html('<span class="badge bg-success text-white fw-bold fs-6 ml-3">' + dataBR(payload) + '</span>');
+  $('#timestamp').html('<span class="badge bg-success text-white fw-bold ml-2">' + dataBR(payload) + '</span>');
 });
 
 
@@ -27,7 +27,6 @@ socket.on('connections-count', function (payload) {
 socket.on("connect", () => {
   localStorage.setItem("socket_id", socket.id);
   console.log('Socket ID: ' + socket.id)
-  //$('#server-status').html('<i class="fa-solid fa-rotate-right fa-spin fa-xl" style="color: #00ff00;"></i>');
   $('#server-status').html('<i class="fa-solid fa-rotate-right fa-spin fa-xl text-success"></i>');
   // socket.emit("update", {
   //   type: 'connect',

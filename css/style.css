@@ -10,12 +10,12 @@
 		left: -99999rem;
 	}
 
-	.font-size-12 
+	.table-persona 
 	{
 		font-size: 11px !important;
 	}
 
-	.font-size-12 td
+	.table-persona td
 	{
 		border-top: 1px solid coral;
 	}
@@ -195,7 +195,7 @@
   }
 
 	.height-150 {
-		min-height: 200px;
+		min-height: 150px;
 		border-top: 1px solid coral;
 
 	}

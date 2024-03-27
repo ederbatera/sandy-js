@@ -2,7 +2,7 @@ const url = '../../assets/_get_funcionarios.php'; // Substitua 'URL_DA_API' pela
 const tableBody = document.getElementById('tbody-list-funcionarios');
 const searchInput = document.getElementById('search-input-funcionarios');
 const pagination = document.getElementById('pagination-table-funcionarios');
-const itemsPerPage = 20;
+const itemsPerPage = 15;
 let currentPage = 1;
 var __FUNCIONARIOS = [];
 
