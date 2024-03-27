@@ -51,47 +51,47 @@ include_once 'configs/load_env.php';
                 </span>
             </div>
             <div class="col-auto text-start">
-                <span class="text-muted pl-2">Servidor: </span>
+                <!-- <span class="text-muted pl-2">Servidor: </span> -->
                 <span id="server-status"></span>
                 <span id="timestamp"><span>
             </div>
             <div class="col-auto text-start">
-                <span class="text-muted pl-2">Usuários Online: </span>
-                <span class="badge bg-secondary fw-bold fs-6 ml-3">
+                <span class="text-muted pl-2">Online: </span>
+                <span class="badge bg-secondary">
                     <span id="usersWS"> ? </span>
                 </span>
             </div>
             <div class="col-auto text-start">
                 <span class="text-muted">Estoque: </span>
-                <span class="badge bg-secondary fw-bold fs-6 ml-3">
+                <span class="badge bg-secondary">
                     <span id="estoqueAll"> ? </span>
                 </span>
             </div>
             <div class="col-auto text-start">
                 <span class="text-muted">Funcionários: </span>
-                <span class="badge bg-secondary fw-bold fs-6 ml-3">
+                <span class="badge bg-secondary">
                     <span id="funcionariosIndex"> ? </span>
                 </span>
             </div>
             <div class="col-auto text-start">
                 <span class="text-muted">Com saldo: </span>
-                <span class="badge bg-secondary fw-bold fs-6 ml-3">
+                <span class="badge bg-secondary">
                     <span id="cardsWhithSaldoIndex"> ? </span>
                 </span>
             </div>
             <div class="col-auto text-start">
                 <span class="text-muted">Sem saldo: </span>
-                <span class="badge bg-secondary fw-bold fs-6 ml-3">
+                <span class="badge bg-secondary">
                     <span id="cardsNotSaldoIndex"> ? </span>
                 </span>
             </div>
-            <div class="col-3">
+            <div class="col-3 text-start">
                 <span class="text-muted">Eventos: </span>
-                <span class="badge bg-light text-primary ml-3" style="font-size: 14px">
+                <span class="badge bg-light text-primary" style="font-size: 14px">
                     <span id="eventWS">Aguardando...</span>
                 </span>
             </div>
-            <div class="col-1 text-end px-1">
+            <div class="col-auto text-start">
                 <div class="dropdown">
                     <button class="btn btn-sm btn-secondary dropdown-toggle pr-2" data-bs-toggle="dropdown"
                         aria-expanded="false">
@@ -117,7 +117,7 @@ include_once 'configs/load_env.php';
 
     <div id="exTab3" class="container-fluid">
         <div class="row justify-content-between">
-            <div class="col-11">
+            <div class="col-11" style="font-size:small">
                 <nav class="navbar navbar-expand-sm sticky-top">
                     <ul class="navbar-nav nav nav-tab nav-pills" id="kv-1" role="tablist">
                         <li class="nav-item" role="presentation">
