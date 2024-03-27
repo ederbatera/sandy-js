@@ -1,7 +1,7 @@
 <div class="tab-pane fade" id="tab-cestas" role="tabpanel" aria-labelledby="tab-cestas-tab">
 		<form id="userForm">
 		<div class="row text-center justify-content-center">
-			<div class="col-12 overflow-auto" style="height: 78vh">			
+			<div class="col-12 overflow-auto" style="height: 68vh">			
 				<table class="table table-info table-sm table-borderless table-responsive table-hover text-start user-select-none" id="userTable">
 				<thead class="table-primary sticky-top" style="background-color: #41605890; z-index: 10;">
 					<tr class="">

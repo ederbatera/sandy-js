@@ -1,45 +1,10 @@
 <?php
 
 include_once "../configs/load_env.php";
-$token = $_ENV['WEBSOCKET_TOKEN'];
-$db = $_ENV['DB_NAME'];
-function sendWebSocket($array, $token) {
-
-    $countedValues = array_count_values($array);
-    $removidos = isset($countedValues[0]) ? $countedValues[0] : 0;
-    $adicionados = isset($countedValues[1]) ? $countedValues[1] : 0;
-
-    $postData = array(
-        'type' => 'update-user',
-        'message' => 'Disponibilização de saldo em massa por USER',
-        'payload' => [
-            'removidos' => $removidos,
-            'adicionados' => $adicionados
-        ]
-
-    );
-
-    $postUrl = 'https://socket.agudos.digital/update';
-    //$postUrl = 'https://mqtt.agudos.net/teste';
-
-    $ch = curl_init($postUrl);
-
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($postData));
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-        'Content-Type: application/json',
-        'token: '.$token
-    ));
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-    // Executar o POST sem esperar por uma resposta
-    curl_exec($ch);
-
-    // Fechar a conexão cURL
-    curl_close($ch);
-}
-
-
+$db_user = $_ENV['DB_USER'];
+$db_pass = $_ENV['DB_PASS'];
+$db_name = $_ENV['DB_NAME'];
+$db_host = $_ENV['DB_HOST'];
 
 header('Content-Type: application/json');
 
@@ -64,9 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }, $sanitizedUserSaldos);
 
 
-        $dsn = 'mysql:host=10.0.0.7;dbname='.$db;
-        $username = 'ederbatera';
-        $password = 'Mion@03122022';
+        $dsn = 'mysql:host='.$db_host.';dbname='.$db_name;
         
         // var_dump($sanitizedUserIds[$index]);
         // echo '<br>';
@@ -75,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // print_r($sanitizedUserSaldos);
         // echo '<br>';
         try {
-            $db = new PDO($dsn, $username, $password);
+            $db = new PDO($dsn, $db_user, $db_pass);
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             $db->beginTransaction();
@@ -106,7 +69,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $response = array('success' => false, 'message' => 'Dados ausentes no formulário');
         echo json_encode($response);
     }
-    sendWebSocket($sanitizedUserSaldos, $token);
 } else {
     $response = array('success' => false, 'message' => 'Método de requisição inválido');
     echo json_encode($response);

@@ -185,7 +185,7 @@ form.addEventListener('submit', async function(event) {
       method: 'POST',
       body: formData
     });
-    //console.log(await response.text());
+    console.log(await response.text());
     const contentType = response.headers.get('content-type');
     Swal.close();
   if (contentType && contentType.indexOf('application/json') !== -1) {
