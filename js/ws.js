@@ -7,7 +7,7 @@ socket.on('timestamp', function (payload) {
 
 socket.on('update', function (payload) {
   
-  $('#eventWS').html(payload.message);
+  $('#eventWS').html(`<marquee>${payload.message}</marquee>`);
   
   switch (payload.type) {
     case 'delivery':

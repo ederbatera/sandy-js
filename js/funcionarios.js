@@ -129,7 +129,8 @@ function populateTable(__FUNCIONARIOS) {
     const editButtonFa = document.createElement('i')
     //editButton.textContent = '<i class="fa-solid fa-arrow-up-right-from-square"></i>';    
     editButton.classList.add('text-decoration-none', 'hover-black');
-    editButtonFa.classList.add('fa-solid', 'fa-arrow-up-right-from-square');
+    // editButtonFa.classList.add('fa-solid', 'fa-arrow-up-right-from-square');
+    editButtonFa.classList.add('fa-regular', 'fa-pen-to-square');
 
     editButton.addEventListener('click', () => {
       openModalViewFuncionario(item);

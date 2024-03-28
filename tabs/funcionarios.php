@@ -52,8 +52,11 @@
       </table>
     </div>
   </div>
-  <div class="row justify-content-md-center mt-2" id="pagination-table-funcionarios" style="margin-top: -0.9rem"></div>
+  <div class="footer fixed-bottom mb-5">
+    <div class="row justify-content-md-center" id="pagination-table-funcionarios" style="margin-top: -0.9rem"></div>
     <div class="row justify-content-md-center text-dark fw-bold mt-1" id="paginationInfo"></div>
+  </div>
+
 </div>
 
 

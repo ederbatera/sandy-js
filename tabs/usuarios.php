@@ -16,7 +16,7 @@
 							<th scope="col"></th>
 						</tr>
 					</thead>
-					<tbody id="listUsuarios">
+					<tbody class="fs-6" id="listUsuarios">
 					</tbody>
 				</table>
 			</div>

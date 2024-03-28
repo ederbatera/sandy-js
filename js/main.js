@@ -26,7 +26,8 @@ $(document).ready(function () {
 							console.log("estoque")
 							break;
 						case "tab-fornecedores":
-							console.log("fornecedores")
+							// console.log("fornecedores")
+							getFornecedores()
 							break;
 						case "tab-usuarios":
 							getUsuarios()

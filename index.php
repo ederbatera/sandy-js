@@ -11,7 +11,9 @@ if ($_SESSION['permissao'] < 2) {
     header("Location: /delivery");
 }
 
-$user_nome = isset($_SESSION['nome']) ? $_SESSION['nome'] : 'UNKNOW';
+$user_nome = $_SESSION['nome'];
+$names = explode(" ", $user_nome);
+$first_nome = $names[0];
 $user_id = $_SESSION['id'];
 $permissao = $_SESSION['permissao'];
 
@@ -86,10 +88,10 @@ include_once 'configs/load_env.php';
             
             </div>
             
-            <div class="col-auto text-start">
+            <div class="col">
                 <span class="text-muted ms-2">Eventos: </span>
-                <span class="badge bg-light text-primary" style="font-size: 14px">
-                    <span id="eventWS">Aguardando...</span>
+                <span class="badge bg-light text-primary" id="eventWS" style="font-size: small">
+                    Aguardando...
                 </span>
             </div>
             
@@ -99,7 +101,7 @@ include_once 'configs/load_env.php';
                         aria-expanded="false">
                         <i class="fa-regular fa-user p-1"></i>
                         <strong>
-                            <?php echo $user_nome; ?>
+                            <?php echo $first_nome; ?>
                         </strong>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-right">
@@ -237,6 +239,7 @@ include_once 'configs/load_env.php';
     <script src="js/gets.js"></script>
     <script src="js/usuarios.js"></script>
     <script src="js/estoque.js"></script>
+    <script src="js/fornecedores.js"></script>
     <script src="js/funcionarios.js"></script>
     <script src="js/cestas.js"></script>
     <script src="js/js.js"></script>
