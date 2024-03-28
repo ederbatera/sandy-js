@@ -6,14 +6,20 @@ socket.on('timestamp', function (payload) {
 
 
 socket.on('update', function (payload) {
-  
+
   $('#eventWS').html(`<marquee>${payload.message}</marquee>`);
-  
+
   switch (payload.type) {
     case 'delivery':
       getEstoque()
+      getEntregas()
+      fetchData()
       break;
-  
+    case 'saldo':
+      getEstoque()
+      fetchData()
+      break;
+
     default:
       break;
   }
@@ -21,7 +27,6 @@ socket.on('update', function (payload) {
 
 socket.on('connections-count', function (payload) {
   $('#usersWS').html(payload);
-  //console.log('Clients count: '+payload) //usersWS
 });
 
 socket.on("connect", () => {

@@ -17,4 +17,3 @@ $total["saldo"] = $query_total_saldo->fetch(PDO::FETCH_OBJ);
    
 header('Content-Type: application/json');
 echo json_encode($total, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-?>

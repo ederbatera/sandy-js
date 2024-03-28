@@ -14,7 +14,7 @@ $(document).ready(function () {
 
 					switch (target) {
 						case "tab-dashboard":
-							console.log("dashboard")
+							//console.log("dashboard")
 							break;
 						case "tab-funcionarios":
 							$("#rfidCardInput").val("").focus()
@@ -23,20 +23,18 @@ $(document).ready(function () {
 							setSaldoAll()
 							break;
 						case "tab-estoque":
-							console.log("estoque")
+							//console.log("estoque")
 							break;
 						case "tab-fornecedores":
-							// console.log("fornecedores")
 							getFornecedores()
 							break;
 						case "tab-usuarios":
 							getUsuarios()
 							break;
-						case "tab-registros":
-							console.log("registros")
+						case "tab-retiradas":
+							getEntregas()
 							break;
 						case "tab-configuracoes":
-							console.log("configuracoes")
 							break;
 						default:
 
@@ -63,22 +61,6 @@ $(document).ready(function () {
 	});
 
 
-	// $('#rfidCardInput').mask('0000000', {
-	// 	'translation': {
-	// 	//	S: {pattern: /[A-Za-z]/},
-	// 		0: {pattern: /[0-9]/}
-	// 	}
-	// 	,onKeyPress: function (value, event) {
-	// 		event.currentTarget.value = value.toUpperCase();
-	// 	}
-	// });
-
-	/*
-	$(document).on("click","#formFuncionario-celular", function(){
-		$(this).mask('(00) 0 0000-0000',{reverse: true});
-	})
-	*/
-
 	/* HABILITA O data-mask="(00) 00000-0000" */
 	$.jMaskGlobals.watchDataMask = true;
 
@@ -89,7 +71,6 @@ $(document).ready(function () {
 	/* LIMPA O CAMPO DE MENSAGEM AO FECHAR O MODAL */
 	$('#modalViewFuncionario').on('hide.bs.modal', function (event) {
 		$("#res-post-img").html('');
-		//getFuncionarios(false);
 	})
 
 	/* LIMPA O FORMULÁRIO AO FECHAR O MODAL */
@@ -99,14 +80,6 @@ $(document).ready(function () {
 		});
 		fetchData();
 	})
-
-	// $("#table-funcionarios").fancyTable({
-	// 	sortColumn:0,
-	// 	pagination: true,
-	// 	perPage:10,
-	// 	globalSearch:true
-	//   });
-
 
 	var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
 	var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {

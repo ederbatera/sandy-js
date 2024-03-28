@@ -23,10 +23,22 @@ if ($card && $user_id && $user_name):
     ELSE quantidade END
     WHERE id = (SELECT MAX(id) FROM estoque)";
 
+    // Query para obter o último estoque
+    $estoque = new stdClass;
+    $estoque->codigo_fornecedor = null;
+    $estoque->id = null;
+    $query_estoque = "SELECT id, codigo_fornecedor FROM estoque WHERE id = (SELECT MAX(id) FROM estoque)";
+    $stmt = $pdo->query($query_estoque);
+    if ($stmt) {
+        $estoque = $stmt->fetchObject();
+    }
+
+    // Query de consulta aos dados do funcionário
     $query = $pdo->prepare("SELECT * from funcionarios  WHERE cartao = ?");
     $query->bindParam(1, $card);
     $query->execute();
     $number_of_rows = $query->rowCount();
+
 
     if ($number_of_rows > 0):
         $funcionario = $query->fetch(PDO::FETCH_OBJ);
@@ -44,7 +56,7 @@ if ($card && $user_id && $user_name):
 
             try {
                 $pdo->beginTransaction();
-                if (!$pdo->exec('UPDATE funcionarios SET saldo = 0 WHERE cartao = \'' . $card . '\'') || !$pdo->exec("INSERT INTO log_retiradas (id_funcionario, id_user) VALUES ( {$funcionario->id} , {$user_id} )")) {
+                if (!$pdo->exec('UPDATE funcionarios SET saldo = 0 WHERE cartao = \'' . $card . '\'') || !$pdo->exec("INSERT INTO log_retiradas (id_funcionario, id_user, codigo_fornecedor, estoque) VALUES ( {$funcionario->id} , {$user_id}, {$estoque->codigo_fornecedor}, {$estoque->id} )")) {
                     $pdo->rollback();
                     throw new Exception();
                 }

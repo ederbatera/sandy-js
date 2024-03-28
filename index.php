@@ -181,10 +181,10 @@ include_once 'configs/load_env.php';
                         </li>
 
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link px-3" style="cursor:pointer;" data-bs-target="#tab-registros" role="tab"
-                                data-bs-toggle="tab" aria-controls="tab-registros" aria-selected="false">
+                            <a class="nav-link px-3" style="cursor:pointer;" data-bs-target="#tab-retiradas" role="tab"
+                                data-bs-toggle="tab" aria-controls="tab-retiradas" aria-selected="false">
                                 <i class="fa-solid fa-list-ul fa-lg"></i>
-                                <span class="ml-1">Registros</span>
+                                <span class="ml-1">Retiradas</span>
                             </a>
                         </li>
 
@@ -216,7 +216,7 @@ include_once 'configs/load_env.php';
             include_once "tabs/cartoes.php";
             include_once "tabs/fornecedores.php";
             include_once "tabs/usuarios.php";
-            include_once "tabs/registros.php";
+            include_once "tabs/retiradas.php";
             include_once "tabs/configuracoes.php";
             ?>
         </div>
@@ -238,6 +238,7 @@ include_once 'configs/load_env.php';
     <script src="js/functions.js"></script>
     <script src="js/gets.js"></script>
     <script src="js/usuarios.js"></script>
+    <script src="js/retiradas.js"></script>
     <script src="js/estoque.js"></script>
     <script src="js/fornecedores.js"></script>
     <script src="js/funcionarios.js"></script>

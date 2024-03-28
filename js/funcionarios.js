@@ -374,7 +374,7 @@ const removeSaldo = (userid, username, modal = false) => {
             }
             fetchData();
             socket.emit("update", {
-              type: 'saldo',
+              type: 'saldo', 
               message: `${user_name} removeu saldo de ${username}`,
               log: {
                 user: user_id,
