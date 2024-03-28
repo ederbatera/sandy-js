@@ -1,3 +1,9 @@
+// VARIAVEIS GLOBAIS
+let __FORNECEDORES = [],
+    __FUNCIONARIOS = [],
+    __ESTOQUES = [],
+    __ESTOQUE,
+    __SALDO
 
 // FORMATA DATA E HORA
 const dataBR = (data) => {

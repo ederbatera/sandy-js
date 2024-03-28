@@ -179,7 +179,7 @@
             <div class="col-2">
               <label for="formFuncionario-cartão" class="form-label">Cartão</label>
               <input type="password" class="form-control form-control-sm" name="cartao" data-mask="0000000000"
-                autocomplete="off" maxlength="7">
+                autocomplete="off" maxlength="10">
             </div>
           </div>
 

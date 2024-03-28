@@ -126,7 +126,6 @@
 	</div>
 </div>
 
-
 <!-- Modal Edição de Perfil-->
 <div class="modal fade text-dark" id="modalChangePerfil" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
 	aria-labelledby="modalCriaUsuarioLabel" aria-hidden="true">

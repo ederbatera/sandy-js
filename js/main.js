@@ -1,5 +1,11 @@
 $(document).ready(function () {
 
+	$(document).ready(function () {  
+        $("input[type=text]").keyup(function () {  
+            $(this).val($(this).val().toUpperCase());  
+        });  
+    });
+
 
 	/* PEGA O EVENTO DE ABERTURA DE TAB */
 	$(() => {
@@ -24,6 +30,7 @@ $(document).ready(function () {
 							break;
 						case "tab-estoque":
 							//console.log("estoque")
+							getEstoque()
 							break;
 						case "tab-fornecedores":
 							getFornecedores()

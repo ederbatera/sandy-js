@@ -4,7 +4,7 @@ const searchInput = document.getElementById('search-input-funcionarios');
 const pagination = document.getElementById('pagination-table-funcionarios');
 const itemsPerPage = 15;
 let currentPage = 1;
-var __FUNCIONARIOS = [];
+
 
 // Suponha que você alterou a variável 'data'
 // __FUNCIONARIOS.push({
@@ -574,4 +574,4 @@ const openModalViewFuncionario = (funcionario) => {
 
   myModal.show();
   // });
-}
+} 

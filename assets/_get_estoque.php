@@ -8,7 +8,7 @@ $limit = isset($_GET['limit']) && !empty($_GET['limit']) && $_GET['limit'] != "f
 
 if ($limit):
 
-    $query = $pdo->prepare("SELECT A.id AS id, B.razao AS fornecedor, U.nome as user_create, A.data_atualizacao AS data_atualizacao, A.data_cadastro AS data_cadastro, A.quantidade AS quantidade
+    $query = $pdo->prepare("SELECT A.id AS id, A.codigo_fornecedor, B.razao AS fornecedor, U.nome as user_create, A.data_atualizacao AS data_atualizacao, A.data_cadastro AS data_cadastro, A.quantidade AS quantidade
                                 from estoque A  
                                 INNER JOIN fornecedores B
                                 ON A.codigo_fornecedor = B.id
@@ -25,7 +25,7 @@ if ($limit):
     endif;
 
 else:
-    $query = $pdo->prepare("SELECT A.id AS id, B.razao AS fornecedor, U.nome as user_create, A.data_atualizacao AS data_atualizacao, A.data_cadastro AS data_cadastro, A.quantidade AS quantidade
+    $query = $pdo->prepare("SELECT A.id AS id, A.codigo_fornecedor, B.razao AS fornecedor, U.nome as user_create, A.data_atualizacao AS data_atualizacao, A.data_cadastro AS data_cadastro, A.quantidade AS quantidade
                                 from estoque A  
                                 INNER JOIN fornecedores B
                                 ON A.codigo_fornecedor = B.id

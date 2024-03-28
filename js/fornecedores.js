@@ -12,6 +12,7 @@ const getFornecedores = async (limit = false) => {
     const response = await fetch(url); // RETORNA ARRAY
     fornecedores = await response.json()
     populateTableFornecedores(fornecedores)
+    __FORNECEDORES = fornecedores
   } catch (error) {
     console.error('Erro ao buscar dados:', error);
   }
@@ -20,6 +21,9 @@ const getFornecedores = async (limit = false) => {
 
 }
 
+if(__ESTOQUES.length == 0){
+  getEstoque()
+}
 
 // POPULAÇÃO DA TABELA
 const tableBodyFornecedores = document.getElementById('tbody-list-fornecedores');
@@ -43,7 +47,9 @@ function populateTableFornecedores(fornecedores) {
     row.appendChild(dataCadastroCell);
 
     const estoquesCell = document.createElement('td');
-    estoquesCell.textContent = item?.estoques? item.estoques : '?';
+    const estoquesOnFornecedor = __ESTOQUES.filter( estoque => estoque.codigo_fornecedor == item.id)
+    const estoques = estoquesOnFornecedor.length
+    estoquesCell.textContent = estoques? estoques : 'Nenhum';
     row.appendChild(estoquesCell);
 
         // ADICIONANDO OS BOTÕES
@@ -76,3 +82,25 @@ const openModalViewFornecedor = () => {
         html: 'Recurso em desenvolvimento',
       })
 }
+
+
+// ENVIO DO FORM DE ADICIONAR FORNECEDOR
+$('#form-add-fornecedor').on("submit", function (e) {
+  e.preventDefault()
+  $.post("../assets/_cria_fornecedor.php", $("#form-add-fornecedor").serialize())
+      .done(function (retorno) {
+          if (retorno.icon == "success") {
+              $('#modalCriaFornecedor').modal('hide');
+              $('#form-add-fornecedor')[0].reset();
+              getFornecedores();
+          }
+          Swal.fire({
+              icon: retorno.icon,
+              title: retorno.title,
+              html: retorno.html,
+              showConfirmButton: true,
+              timer: 1500
+          });
+
+      })
+})
