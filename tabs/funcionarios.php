@@ -37,11 +37,9 @@
             <th scope="col">Lotação</th>
             <th scope="col">Local</th>
             <th scope="col">Cargo</th>
-            <th scope="col">Folha</th>
             <th scope="col">Secretaria</th>
             <th scope="col">Direito</th>
             <th scope="col">Opção</th>
-            <!-- <th scope="col">Ativo</th> -->
             <th scope="col">Saldo</th>
             <th scope="col">Editar</th>
           </tr>
@@ -123,7 +121,7 @@
           <div class="row mb-3">
             <div class="col-2">
               <label for="formFuncionario-matricula" class="form-label">Matrícula</label>
-              <input type="number" class="form-control form-control-sm" name="matricula" required>
+              <input type="text" class="form-control form-control-sm" name="matricula" data-mask="00000000" required>
             </div>
 
             <div class="col-4">
@@ -132,14 +130,15 @@
             </div>
 
             <div class="col-3">
-              <label for="formFuncionario-folha" class="form-label">Folha</label>
-              <input type="text" class="form-control form-control-sm" name="folha" required>
-            </div>
-
-            <div class="col-3">
               <label for="formFuncionario-vinculo" class="form-label">Vínculo</label>
               <input type="text" class="form-control form-control-sm" name="vinculo" required>
             </div>
+
+            <div class="col-3">
+            <label for="formFuncionario-lotacao" class="form-label">Lotação</label>
+            <input type="text" class="form-control form-control-sm" name="lotacao" required>
+          </div>
+
           </div>
 
           <div class="row mb-3">
@@ -151,11 +150,6 @@
             <div class="col">
               <label for="formFuncionario-local" class="form-label">Local</label>
               <input type="text" class="form-control form-control-sm" name="local" required>
-            </div>
-
-            <div class="col">
-              <label for="formFuncionario-lotacao" class="form-label">Lotação</label>
-              <input type="text" class="form-control form-control-sm" name="lotacao" required>
             </div>
 
             <div class="col">
@@ -205,12 +199,6 @@
               </div>
             </div>
 
-            <!-- <div class="col-auto">
-              <div class="form-check form-switch">
-                <input class="form-check-input" type="checkbox" name="ativo" checked>
-                <label class="form-check-label" for="formFuncionario-ativo">Ativo</label>
-              </div>
-            </div> -->
           </div>
 
           <div class="row justify-content-end">
@@ -221,42 +209,6 @@
           </div>
 
         </form>
-        <!-- Form -->
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-<div class="modal fade" id="modalAddFornecedor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-  aria-labelledby="modalAddFornecedorLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-xl">
-    <div class="modal-content border border-primary" style="background-color: #00FFFF">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5">Adicionar novo fornecedor</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <!-- Form -->
-        Adicionar Fornecedor
-        <!-- Form -->
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="modal fade" id="modalViewFornecedor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-  aria-labelledby="modalViewFornecedorLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-xl">
-    <div class="modal-content border border-primary" style="background-color: #00FFFF">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5">Adicionar novo fornecedor</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body id=" modalBodyViewFornecedor">
-        <!-- Form -->
-        Ver Fornecedor
         <!-- Form -->
       </div>
     </div>

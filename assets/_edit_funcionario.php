@@ -27,7 +27,7 @@ if (isset($_POST["operacao"]))
                 try {
                     $pdo->beginTransaction();           
                     if(!$pdo->exec("INSERT into funcionarios
-                        (matricula, cartao, nome, vinculo, lotacao, local_trabalho, cargo, folha, secretaria, email, celular, direito_cesta, opcao_cesta, obs, ativo)
+                        (matricula, cartao, nome, vinculo, lotacao, local_trabalho, cargo, secretaria, email, celular, direito_cesta, opcao_cesta, obs, ativo)
 
                         VALUES (
                             '{$_POST["matricula"]}',
@@ -37,7 +37,6 @@ if (isset($_POST["operacao"]))
                             '{$_POST["lotacao"]}',
                             '{$_POST["local_trabalho"]}',
                             '{$_POST["cargo"]}',
-                            '{$_POST["folha"]}',
                             '{$_POST["secretaria"]}',
                             '{$_POST["email"]}',
                             {$celular},
@@ -82,7 +81,6 @@ if (isset($_POST["operacao"]))
                         lotacao = '{$_POST["lotacao"]}', 
                         local_trabalho = '{$_POST["local_trabalho"]}', 
                         cargo = '{$_POST["cargo"]}', 
-                        folha = '{$_POST["folha"]}', 
                         secretaria = '{$_POST["secretaria"]}', 
                         email = '{$_POST["email"]}', 
                         celular = {$celular}, 

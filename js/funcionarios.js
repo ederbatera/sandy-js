@@ -75,10 +75,6 @@ function populateTable(__FUNCIONARIOS) {
     cargoCell.textContent = item.cargo;
     row.appendChild(cargoCell);
 
-    const folhaCell = document.createElement('td');
-    folhaCell.textContent = item.folha;
-    row.appendChild(folhaCell);
-
     const secretariaCell = document.createElement('td');
     secretariaCell.textContent = item.secretaria;
     row.appendChild(secretariaCell);
@@ -99,16 +95,7 @@ function populateTable(__FUNCIONARIOS) {
     opcaoCell.appendChild(opcaoCellIcon)
     row.appendChild(opcaoCell);
 
-    // const ativoCell = document.createElement('td');
-    // //ativoCell.textContent = item.ativo;
-    // ativoCell.classList.add('text-center', 'fs-5');
-    // const ativoCellIcon = document.createElement('i');
-    // item.ativo == 1 ? ativoCellIcon.classList.add('fa-regular', 'fa-circle-check', 'text-primary') : ativoCellIcon.classList.add('fa-regular', 'fa-circle-xmark', 'text-danger')
-    // ativoCell.appendChild(ativoCellIcon)
-    // row.appendChild(ativoCell);
-
     const saldoCell = document.createElement('td');
-    //saldoCell.textContent = item.saldo;
     saldoCell.setAttribute('data-tooltip', 'Alterar saldo')
     saldoCell.classList.add('text-center', 'fs-5')
     const saldoCellButton = document.createElement('a')
@@ -487,14 +474,14 @@ const openModalViewFuncionario = (funcionario) => {
     '<input type="text" class="form-control form-control-sm" name="nome" value="' + funcionario.nome + '" readonly="readonly">' +
     '</div>' +
     '<div class="col-3">' +
-    '<label for="folha" class="form-label">Folha</label>' +
-    '<input type="text" class="form-control form-control-sm" name="folha" value="' + funcionario.folha + '" readonly="readonly">' +
-    '</div>' +
-    '<div class="col-3">' +
     '<label for="vinculo" class="form-label">Vínculo</label>' +
     '<select class="form-select form-select-sm" id="vinculo" name="vinculo" readonly="readonly">' +
     selectVinculo +
     '</select>' +
+    '</div>' +
+    '<div class="col-3">' +
+    '<label for="lotacao" class="form-label">Lotação</label>' +
+    '<input type="text" class="form-control form-control-sm" name="lotacao" value="' + funcionario.lotacao + '" readonly="readonly">' +
     '</div>' +
     '</div>' +
 
@@ -509,10 +496,6 @@ const openModalViewFuncionario = (funcionario) => {
     '<div class="col">' +
     '<label for="local" class="form-label">Local de Trabalho</label>' +
     '<input type="text" class="form-control form-control-sm" name="local" value="' + funcionario.local_trabalho + '" readonly="readonly">' +
-    '</div>' +
-    '<div class="col">' +
-    '<label for="lotacao" class="form-label">Lotação</label>' +
-    '<input type="text" class="form-control form-control-sm" name="lotacao" value="' + funcionario.lotacao + '" readonly="readonly">' +
     '</div>' +
     '<div class="col">' +
     '<label for="cargo" class="form-label">Cargo</label>' +
